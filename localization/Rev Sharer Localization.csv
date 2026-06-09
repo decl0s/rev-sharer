@@ -1,0 +1,17 @@
+STRING,en,fr
+---- RECIPIENTS ----,,
+REC_NAME,Recipient Name,Nom
+MINIMUM_PAYOUT,Minimum Payout Amount,Montant minimum des paiement
+REC_SOURCE,Revenue Source,Source de revenu
+REC_PERCENTAGE,Percentage Share,Pourcentage partagé
+REC_SCHEDULE,Payout Schedule,Rythme de paiement
+REC_START_DATE,Start date,Date de départ
+REC_END_DATE,End date,Date de fin
+REC_ADD_REVENUE,Add Revenue,Ajouter le revenu
+---- BUTTONS ----,,
+ARE_YOU_SURE,Are you sure?,Êtes-vous sûr?
+BTN_CANCEL,Cancel,Annuler
+---- REVENUE ----,,
+REV_YEARLY,Yearly,Annuel
+REV_QUARTERLY,Quarterly,Trimestriel
+REV_MONTHLY,Monthly,Mensuel

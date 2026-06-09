@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://coxtlvqcq551v"]
+
+[ext_resource type="Texture2D" uid="uid://hgqcnqfmqrxx" path="res://assets/icons/delete-forever.svg" id="1_t3j8t"]
+[ext_resource type="Theme" uid="uid://bcibt73qths3g" path="res://assets/minimal_theme.tres" id="1_uc00m"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="3_48wiu"]
+
+[node name="Recipient" type="Control" unique_id=103039386]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uc00m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=739999210]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=985163385]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=628819169]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REC_NAME"
+
+[node name="Payout" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1064959087]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MINIMUM_PAYOUT"
+
+[node name="DeleteSourceButton2" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=462574967]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+disabled = true
+icon = ExtResource("1_t3j8t")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=243153876]
+layout_mode = 2
+
+[node name="RecipientInfo" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=1413521626]
+layout_mode = 2
+
+[node name="TopLine" type="HBoxContainer" parent="VBoxContainer/PanelContainer/RecipientInfo" unique_id=1887788882]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/PanelContainer/RecipientInfo/TopLine" unique_id=1979432618]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "John Doe"
+
+[node name="Payout" type="Label" parent="VBoxContainer/PanelContainer/RecipientInfo/TopLine" unique_id=779874080]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100$"
+
+[node name="DeleteRecipientButton" type="Button" parent="VBoxContainer/PanelContainer/RecipientInfo/TopLine" unique_id=2051667616]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+icon = ExtResource("1_t3j8t")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/RecipientInfo" unique_id=237035744]
+layout_mode = 2
+theme = ExtResource("1_uc00m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer" unique_id=1788276341]
+layout_mode = 2
+
+[node name="Sources" type="HBoxContainer" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer" unique_id=995155714]
+layout_mode = 2
+
+[node name="SourceName" type="Label" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources" unique_id=592488588]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REC_SOURCE"
+
+[node name="Percentage" type="Label" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources" unique_id=772003247]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REC_PERCENTAGE"
+
+[node name="Percentage2" type="Label" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources" unique_id=662718068]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REC_SCHEDULE"
+
+[node name="DeleteSourceButton2" type="Button" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources" unique_id=92445284]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+disabled = true
+icon = ExtResource("1_t3j8t")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer" unique_id=1866026610]
+layout_mode = 2
+
+[node name="Sources2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer" unique_id=861203837]
+layout_mode = 2
+
+[node name="SourceName" type="Label" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources2" unique_id=729629061]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"MonospaceLabel"
+text = "Horripilant"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources2" unique_id=1538561272]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_type_variation = &"GreenHighlightContainer"
+
+[node name="SourcePercentage" type="Label" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources2/PanelContainer" unique_id=1444382728]
+unique_name_in_owner = true
+modulate = Color(0.023529412, 0.8392157, 0.627451, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_uc00m")
+theme_type_variation = &"MonospaceLabel"
+text = "10%"
+
+[node name="PanelContainer2" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources2" unique_id=517991368 instance=ExtResource("3_48wiu")]
+layout_mode = 2
+
+[node name="DeleteSourceButton" type="Button" parent="VBoxContainer/PanelContainer/RecipientInfo/PanelContainer/VBoxContainer/Sources2" unique_id=912188387]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+icon = ExtResource("1_t3j8t")

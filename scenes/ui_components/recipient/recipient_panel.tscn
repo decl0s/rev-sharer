@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://drpajrjjw8av6"]
+
+[ext_resource type="Texture2D" uid="uid://hgqcnqfmqrxx" path="res://assets/icons/delete-forever.svg" id="1_x2bhw"]
+[ext_resource type="Script" uid="uid://h5vqr3ya0rbx" path="res://scenes/ui_components/recipient/recipient_panel.gd" id="2_k5xq0"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="2_xtf0r"]
+[ext_resource type="PackedScene" uid="uid://cbu0r3xa05npi" path="res://scenes/ui_components/recipient/revenue_source_line.tscn" id="3_k5xq0"]
+[ext_resource type="PackedScene" uid="uid://lcnnjd1hhfvj" path="res://scenes/ui_components/recipient/add_revenue_ui.tscn" id="8_rrsbf"]
+
+[node name="RecipientPanel" type="PanelContainer" unique_id=49694863]
+offset_right = 961.0
+offset_bottom = 240.0
+theme = ExtResource("2_xtf0r")
+script = ExtResource("2_k5xq0")
+
+[node name="RecipientInfo" type="VBoxContainer" parent="." unique_id=811971548]
+layout_mode = 2
+
+[node name="Titles" type="HBoxContainer" parent="RecipientInfo" unique_id=445234915]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="RecipientInfo/Titles" unique_id=977136472]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_NAME"
+
+[node name="Payout" type="Label" parent="RecipientInfo/Titles" unique_id=86839888]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "MINIMUM_PAYOUT"
+
+[node name="DeleteRecipientButton" type="Button" parent="RecipientInfo/Titles" unique_id=639594130]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+icon = ExtResource("1_x2bhw")
+
+[node name="delete_recipient_reset" type="Timer" parent="RecipientInfo/Titles/DeleteRecipientButton" unique_id=570417717]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[node name="TopLine" type="HBoxContainer" parent="RecipientInfo" unique_id=688476749]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="RecipientInfo/TopLine" unique_id=337496366]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"MonospaceLabel"
+text = "John Doe"
+
+[node name="MinimumAmount" type="SpinBox" parent="RecipientInfo/TopLine" unique_id=1683676801]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+max_value = 1e+15
+value = 100.0
+suffix = "$"
+
+[node name="MarginContainer" type="MarginContainer" parent="RecipientInfo/TopLine" unique_id=2027691258]
+custom_minimum_size = Vector2(46, 40)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="RecipientInfo" unique_id=1778295358]
+layout_mode = 2
+theme = ExtResource("2_xtf0r")
+
+[node name="RevenueSourceContainer" type="VBoxContainer" parent="RecipientInfo/PanelContainer" unique_id=624178909]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Titles" type="HBoxContainer" parent="RecipientInfo/PanelContainer/RevenueSourceContainer" unique_id=581831984]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SourceName" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=260385322]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_SOURCE"
+
+[node name="Percentage" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=2021845308]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_PERCENTAGE"
+
+[node name="PayoutSchedule" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=536421866]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_SCHEDULE"
+
+[node name="StartDate" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=80925390]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_START_DATE"
+
+[node name="EndDate" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=322383615]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_END_DATE"
+
+[node name="MarginContainer" type="MarginContainer" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=1832520646]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+
+[node name="RevenueSourceLine" parent="RecipientInfo/PanelContainer/RevenueSourceContainer" unique_id=429046603 instance=ExtResource("3_k5xq0")]
+layout_mode = 2
+
+[node name="AddRevenue" parent="RecipientInfo" unique_id=1278000138 instance=ExtResource("8_rrsbf")]
+unique_name_in_owner = true
+layout_mode = 2

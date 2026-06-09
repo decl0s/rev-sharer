@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://lcnnjd1hhfvj"]
+
+[ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="1_bf2ct"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_lojot"]
+[ext_resource type="Script" uid="uid://dx8f77oo2dol6" path="res://scenes/ui_components/recipient/add_revenue_ui.gd" id="2_gvud6"]
+
+[node name="AddRevenue" type="VBoxContainer" unique_id=1278000138]
+size_flags_horizontal = 3
+theme = ExtResource("1_lojot")
+script = ExtResource("2_gvud6")
+
+[node name="AddRevenue" type="Button" parent="." unique_id=1549189604]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REC_ADD_REVENUE"
+
+[node name="AddRevenueSourceContainer" type="PanelContainer" parent="." unique_id=69025516]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddRevenueSourceContainer" unique_id=961926198]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer" unique_id=260413983]
+layout_mode = 2
+
+[node name="RevSource" type="VBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer2" unique_id=1484175470]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RevenueSource" type="Label" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer2/RevSource" unique_id=1510292822]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_SOURCE"
+
+[node name="RevenueOption" type="OptionButton" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer2/RevSource" unique_id=335882654]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 1
+popup/item_0/id = 0
+
+[node name="Share" type="VBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer2" unique_id=661843661]
+layout_mode = 2
+
+[node name="Percentage" type="Label" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer2/Share" unique_id=1061407197]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_PERCENTAGE"
+
+[node name="PercentageShare" type="SpinBox" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer2/Share" unique_id=496729393]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+step = 0.01
+suffix = "%"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer" unique_id=1533469186]
+layout_mode = 2
+
+[node name="Start" type="VBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer" unique_id=1616505899]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="StartMonth" type="Label" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/Start" unique_id=1567592346]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_START_DATE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/Start" unique_id=60340515]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="StartMonthInput" type="SpinBox" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/Start/HBoxContainer" unique_id=465393493]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 12.0
+value = 1.0
+rounded = true
+
+[node name="StartYearInput" type="SpinBox" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/Start/HBoxContainer" unique_id=1707232290]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1900.0
+max_value = 9999.0
+value = 1900.0
+rounded = true
+
+[node name="VSeparator" type="VSeparator" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer" unique_id=1098407372]
+layout_mode = 2
+
+[node name="End" type="VBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer" unique_id=2088940068]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="EndDate" type="Label" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/End" unique_id=1234691905]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_END_DATE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/End" unique_id=627619520]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="EndMonthInput" type="SpinBox" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/End/HBoxContainer" unique_id=2040963358]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 12.0
+value = 1.0
+rounded = true
+
+[node name="EndYearInput" type="SpinBox" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/End/HBoxContainer" unique_id=1770737985]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1900.0
+max_value = 9999.0
+value = 9999.0
+rounded = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer" unique_id=930211409]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EndDate" type="Label" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=15274155]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_END_DATE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1942347918]
+layout_mode = 2
+
+[node name="Confirm" type="Button" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=211889392]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REC_ADD_REVENUE"
+
+[node name="Cancel" type="Button" parent="AddRevenueSourceContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=32159422]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "BTN_CANCEL"
+icon = ExtResource("1_bf2ct")

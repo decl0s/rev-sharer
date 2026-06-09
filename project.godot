@@ -1,0 +1,60 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="RevSharer"
+config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+Colors="*uid://ojwpyhlowrde"
+Utils="*uid://btjpe81g78v"
+Global="*uid://b8or2tcinlp5i"
+Sig="*uid://3x0a7r0bfk85"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/inferred_declaration=2
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "blue",
+"res://localization/": "gray",
+"res://scenes/": "green",
+"res://scripts/": "pink"
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/Rev Sharer Localization.en.translation", "res://localization/Rev Sharer Localization.fr.translation")
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.09824116, 0.094784416, 0.14431545, 1)

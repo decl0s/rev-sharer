@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://coxtlvqcq551v"]
+
+[ext_resource type="Script" uid="uid://m1nmsf1yhd31" path="res://scenes/recipient_ui.gd" id="2_2ayjd"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="2_48wiu"]
+
+[node name="RecipientList" type="Control" unique_id=103039386]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_48wiu")
+script = ExtResource("2_2ayjd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=739999210]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1603754625]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecipientContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1017944047]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

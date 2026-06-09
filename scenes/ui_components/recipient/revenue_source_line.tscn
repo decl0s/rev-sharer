@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cbu0r3xa05npi"]
+
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="1_2nuv6"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_nso53"]
+[ext_resource type="Script" uid="uid://bqjii1xcfdvuh" path="res://scenes/ui_components/recipient/revenue_source_line.gd" id="2_id31w"]
+[ext_resource type="Texture2D" uid="uid://hgqcnqfmqrxx" path="res://assets/icons/delete-forever.svg" id="2_lg0qh"]
+
+[node name="RevenueSourceLine" type="HBoxContainer" unique_id=429046603]
+theme = ExtResource("1_nso53")
+script = ExtResource("2_id31w")
+
+[node name="SourceName" type="Label" parent="." unique_id=1385372105]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"MonospaceLabel"
+text = "UNDEFINED"
+
+[node name="Percentage" parent="." unique_id=517991368 instance=ExtResource("1_2nuv6")]
+unique_name_in_owner = true
+self_modulate = Color(0, 0.7058824, 0.84705883, 1)
+layout_mode = 2
+theme = null
+theme_type_variation = &"PanelHighlightContainer"
+color = 4
+text = "UNDEFINED"
+
+[node name="PayoutSchedule" parent="." unique_id=1178957177 instance=ExtResource("1_2nuv6")]
+unique_name_in_owner = true
+self_modulate = Color(0.023529412, 0.8392157, 0.627451, 1)
+layout_mode = 2
+theme = null
+theme_type_variation = &"PanelHighlightContainer"
+color = 3
+text = "UNDEFINED"
+
+[node name="StartDate" type="Label" parent="." unique_id=919114656]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"MonospaceLabel"
+text = "UNDEFINED"
+
+[node name="EndDate" type="Label" parent="." unique_id=295167944]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"MonospaceLabel"
+text = "UNDEFINED"
+
+[node name="DeleteSourceButton" type="Button" parent="." unique_id=1727194114]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+icon = ExtResource("2_lg0qh")
+
+[node name="DeleteRevSourceReset" type="Timer" parent="DeleteSourceButton" unique_id=1755546448]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
