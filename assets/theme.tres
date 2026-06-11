@@ -809,13 +809,6 @@ bg_color = Color(0.1222, 0.1222, 0.1222, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jw50a"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.092949994, 0.092949994, 0.092949994, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rqbg"]
 content_margin_left = 0.0
 content_margin_top = 0.0
@@ -2375,7 +2368,7 @@ TextEdit/styles/focus = SubResource("StyleBoxFlat_x5ilj")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_g3mbl")
 TextEdit/styles/read_only = SubResource("StyleBoxFlat_icjjw")
 ThemeItemEditorDialog/styles/panel = SubResource("StyleBoxFlat_aaj76")
-TooltipPanel/styles/panel = SubResource("StyleBoxFlat_jw50a")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_0ceoj")
 Tree/colors/drop_position_color = Color(1, 1, 1, 0.35)
 Tree/colors/font_color = Color(1, 1, 1, 0.7)
 Tree/colors/guide_color = Color(1, 1, 1, 0)

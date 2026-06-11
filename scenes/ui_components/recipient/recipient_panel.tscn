@@ -27,6 +27,8 @@ text = "REC_NAME"
 [node name="Payout" type="Label" parent="RecipientInfo/Titles" unique_id=86839888]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "MINIMUM_PAYOUT_DESC"
+mouse_filter = 1
 theme_type_variation = &"LabelSubInfo"
 text = "MINIMUM_PAYOUT"
 
@@ -88,6 +90,8 @@ text = "REC_SOURCE"
 [node name="Percentage" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=2021845308]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "REC_PERCENTAGE_DESC"
+mouse_filter = 1
 theme_type_variation = &"LabelSubInfo"
 text = "REC_PERCENTAGE"
 
@@ -100,6 +104,8 @@ text = "REC_SCHEDULE"
 [node name="Recoup" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=978920511]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "RECOUP_DESC"
+mouse_filter = 1
 theme_type_variation = &"LabelSubInfo"
 text = "REC_RECOUP_AMT"
 
