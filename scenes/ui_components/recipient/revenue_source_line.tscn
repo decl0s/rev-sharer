@@ -31,7 +31,7 @@ self_modulate = Color(0.023529412, 0.8392157, 0.627451, 1)
 layout_mode = 2
 theme = null
 theme_type_variation = &"PanelHighlightContainer"
-color = 3
+color = 2
 text = "UNDEFINED"
 
 [node name="Recoup" parent="." unique_id=1076140015 instance=ExtResource("1_2nuv6")]
@@ -41,6 +41,15 @@ layout_mode = 2
 theme = null
 theme_type_variation = &"PanelHighlightContainer"
 color = 1
+text = "N/A"
+
+[node name="MinimumRev" parent="." unique_id=1224592046 instance=ExtResource("1_2nuv6")]
+unique_name_in_owner = true
+self_modulate = Color(0.9137255, 0.27058825, 0.3764706, 1)
+layout_mode = 2
+theme = null
+theme_type_variation = &"PanelHighlightContainer"
+color = 3
 text = "N/A"
 
 [node name="StartDate" type="Label" parent="." unique_id=919114656]

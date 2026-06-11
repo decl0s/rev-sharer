@@ -9,3 +9,5 @@ var blue : String = "#00b4d8"
 var green : String = "#06d6a0"
 var purple : String = "#7806d6"
 var pink : String = "#d6069f"
+
+var disabled_transparent : String ="#ffffff5a"
