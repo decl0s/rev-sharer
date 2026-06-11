@@ -24,13 +24,6 @@ func update_labels() -> void:
 		%Recoup.text = str(source.recoup) + "$ | " + str(100 * source.recoup_percentage) + "%" 
 		%Recoup.modulate = Color("fff")
 	
-	if source.minimum_rev == 0:
-		%MinimumRev.text = "N/A"
-		%MinimumRev.modulate = Color(Colors.disabled_transparent)
-	else:
-		%MinimumRev.text = str(source.minimum_rev) + "$"
-		%MinimumRev.modulate = Color("fff")
-	
 	%StartDate.text = cal.get_date_formatted(source.start_year,source.start_month,1,"%m-%Y")
 	%EndDate.text = cal.get_date_formatted(source.end_year,source.end_month,1,"%m-%Y")
 

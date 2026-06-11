@@ -42,7 +42,6 @@ func reset_inputs() -> void:
 	%RevenueOption.selected = -1
 	
 	%PercentageShare.value = 0.0
-	%MinimumRev.value = 0.0
 	%StartMonthInput.value = 1
 	%StartYearInput.value = 1900.0
 	%EndMonthInput.value = 1
@@ -52,7 +51,6 @@ func _on_confirm_revenue_pressed() -> void:
 	var new_share : RecipientRevShare = RecipientRevShare.new()
 	new_share.revenue_source = option_items[%RevenueOption.selected]
 	new_share.percentage = %PercentageShare.value * 0.01
-	new_share.minimum_rev = %MinimumRev.value
 	new_share.start_month = %StartMonthInput.value
 	new_share.start_year = %StartYearInput.value
 	new_share.end_month = %EndMonthInput.value

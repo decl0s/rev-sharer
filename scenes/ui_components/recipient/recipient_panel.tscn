@@ -103,12 +103,6 @@ size_flags_horizontal = 3
 theme_type_variation = &"LabelSubInfo"
 text = "REC_RECOUP_AMT"
 
-[node name="Minimum Revenue" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=1720712393]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"LabelSubInfo"
-text = "REC_MIN_REV"
-
 [node name="StartDate" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=80925390]
 layout_mode = 2
 size_flags_horizontal = 3
