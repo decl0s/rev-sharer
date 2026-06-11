@@ -8,7 +8,9 @@ REC_SCHEDULE,Payout Schedule,Rythme de paiement
 REC_START_DATE,Start date,Date de départ
 REC_END_DATE,End date,Date de fin
 REC_ADD_REVENUE,Add Revenue,Ajouter le revenu
----- BUTTONS ----,,
+REC_RECOUP_AMT,Recoup,Remboursement
+REC_RECOUP_PERCENTAGE,Recoup Rev Share,Pourcentage pendant remboursement
+ ,,
 ARE_YOU_SURE,Are you sure?,Êtes-vous sûr?
 BTN_CANCEL,Cancel,Annuler
 ---- REVENUE ----,,

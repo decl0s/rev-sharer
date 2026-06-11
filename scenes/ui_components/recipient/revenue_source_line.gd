@@ -16,6 +16,12 @@ func update_labels() -> void:
 	%SourceName.text = rev_source.name
 	%Percentage.text = str(100 * source.percentage)+"%"
 	%PayoutSchedule.text = Utils.get_schedule_string(rev_source.payout_schedule)
+	
+	if source.recoup == null:
+		%Recoup.text = "N/A"
+	else:
+		%Recoup.text = str(source.recoup) + "$ | " + str(100 * source.recoup_percentage) + "%" 
+	
 	%StartDate.text = cal.get_date_formatted(source.start_year,source.start_month,1,"%m-%Y")
 	%EndDate.text = cal.get_date_formatted(source.end_year,source.end_month,1,"%m-%Y")
 

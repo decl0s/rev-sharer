@@ -14,7 +14,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"MonospaceLabel"
-text = "UNDEFINED"
+text = "NAME"
 
 [node name="Percentage" parent="." unique_id=517991368 instance=ExtResource("1_2nuv6")]
 unique_name_in_owner = true
@@ -34,19 +34,28 @@ theme_type_variation = &"PanelHighlightContainer"
 color = 3
 text = "UNDEFINED"
 
+[node name="Recoup" parent="." unique_id=1076140015 instance=ExtResource("1_2nuv6")]
+unique_name_in_owner = true
+self_modulate = Color(0.9137255, 0.27058825, 0.3764706, 1)
+layout_mode = 2
+theme = null
+theme_type_variation = &"PanelHighlightContainer"
+color = 1
+text = "N/A"
+
 [node name="StartDate" type="Label" parent="." unique_id=919114656]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"MonospaceLabel"
-text = "UNDEFINED"
+text = "START"
 
 [node name="EndDate" type="Label" parent="." unique_id=295167944]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"MonospaceLabel"
-text = "UNDEFINED"
+text = "END"
 
 [node name="DeleteSourceButton" type="Button" parent="." unique_id=1727194114]
 unique_name_in_owner = true

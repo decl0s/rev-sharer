@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://lcnnjd1hhfvj" path="res://scenes/ui_components/recipient/add_revenue_ui.tscn" id="8_rrsbf"]
 
 [node name="RecipientPanel" type="PanelContainer" unique_id=49694863]
-offset_right = 961.0
-offset_bottom = 240.0
+offset_right = 1239.0
+offset_bottom = 286.0
 theme = ExtResource("2_xtf0r")
 script = ExtResource("2_k5xq0")
 
@@ -96,6 +96,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"LabelSubInfo"
 text = "REC_SCHEDULE"
+
+[node name="Recoup" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=978920511]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_RECOUP_AMT"
+
+[node name="Recoup Share" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=1720712393]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelSubInfo"
+text = "REC_RECOUP_PERCENTAGE"
 
 [node name="StartDate" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=80925390]
 layout_mode = 2
