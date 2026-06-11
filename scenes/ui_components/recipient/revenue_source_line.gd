@@ -17,7 +17,7 @@ func update_labels() -> void:
 	%Percentage.text = str(100 * source.percentage)+"%"
 	%PayoutSchedule.text = Utils.get_schedule_string(rev_source.payout_schedule)
 	
-	if source.recoup == null:
+	if source.recoup == 0:
 		%Recoup.text = "N/A"
 	else:
 		%Recoup.text = str(source.recoup) + "$ | " + str(100 * source.recoup_percentage) + "%" 
