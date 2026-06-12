@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RevSharer"
-run/main_scene="uid://coxtlvqcq551v"
+run/main_scene="uid://b8imemr3ibnh"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
