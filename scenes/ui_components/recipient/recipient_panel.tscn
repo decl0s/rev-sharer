@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://h5vqr3ya0rbx" path="res://scenes/ui_components/recipient/recipient_panel.gd" id="2_k5xq0"]
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="2_xtf0r"]
 [ext_resource type="PackedScene" uid="uid://cbu0r3xa05npi" path="res://scenes/ui_components/recipient/revenue_source_line.tscn" id="3_k5xq0"]
+[ext_resource type="Texture2D" uid="uid://bu55ll07alykd" path="res://assets/icons/pencil.svg" id="3_lslu4"]
+[ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="4_jytd8"]
+[ext_resource type="Texture2D" uid="uid://b8rfpyqakqrue" path="res://assets/icons/check.svg" id="5_rrsbf"]
 [ext_resource type="PackedScene" uid="uid://lcnnjd1hhfvj" path="res://scenes/ui_components/recipient/add_revenue_ui.tscn" id="8_rrsbf"]
 
 [node name="RecipientPanel" type="PanelContainer" unique_id=49694863]
@@ -15,16 +18,38 @@ script = ExtResource("2_k5xq0")
 [node name="RecipientInfo" type="VBoxContainer" parent="." unique_id=811971548]
 layout_mode = 2
 
-[node name="Titles" type="HBoxContainer" parent="RecipientInfo" unique_id=445234915]
+[node name="Name" type="HBoxContainer" parent="RecipientInfo" unique_id=481794464]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="RecipientInfo/Titles" unique_id=977136472]
+[node name="Name" type="VBoxContainer" parent="RecipientInfo/Name" unique_id=1674560491]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameTitle" type="Label" parent="RecipientInfo/Name/Name" unique_id=977136472]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"LabelSubInfo"
 text = "REC_NAME"
 
-[node name="Payout" type="Label" parent="RecipientInfo/Titles" unique_id=86839888]
+[node name="Name" type="Label" parent="RecipientInfo/Name/Name" unique_id=337496366]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "John Doe"
+vertical_alignment = 1
+
+[node name="RecipientNameEdit" type="LineEdit" parent="RecipientInfo/Name/Name" unique_id=82125987]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+placeholder_text = "John Doe"
+
+[node name="MinimumPaymentAmount" type="VBoxContainer" parent="RecipientInfo/Name" unique_id=180609594]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Payout" type="Label" parent="RecipientInfo/Name/MinimumPaymentAmount" unique_id=86839888]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "MINIMUM_PAYOUT_DESC"
@@ -32,7 +57,34 @@ mouse_filter = 1
 theme_type_variation = &"LabelSubInfo"
 text = "MINIMUM_PAYOUT"
 
-[node name="DeleteRecipientButton" type="Button" parent="RecipientInfo/Titles" unique_id=639594130]
+[node name="PayoutAmount" type="Label" parent="RecipientInfo/Name/MinimumPaymentAmount" unique_id=356698565]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "MINIMUM_PAYOUT_DESC"
+mouse_filter = 1
+text = "UNDEFINED"
+
+[node name="MinimumAmountEdit" type="SpinBox" parent="RecipientInfo/Name/MinimumPaymentAmount" unique_id=1683676801]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1e+15
+value = 100.0
+suffix = "$"
+
+[node name="BaseButtons" type="HBoxContainer" parent="RecipientInfo/Name" unique_id=445234915]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EditRecipientButton" type="Button" parent="RecipientInfo/Name/BaseButtons" unique_id=1731812268]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BTN_EDIT"
+icon = ExtResource("3_lslu4")
+
+[node name="DeleteRecipientButton" type="Button" parent="RecipientInfo/Name/BaseButtons" unique_id=639594130]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
@@ -42,32 +94,27 @@ theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 icon = ExtResource("1_x2bhw")
 
-[node name="delete_recipient_reset" type="Timer" parent="RecipientInfo/Titles/DeleteRecipientButton" unique_id=570417717]
+[node name="delete_recipient_reset" type="Timer" parent="RecipientInfo/Name/BaseButtons/DeleteRecipientButton" unique_id=570417717]
 unique_name_in_owner = true
 wait_time = 5.0
 one_shot = true
 
-[node name="TopLine" type="HBoxContainer" parent="RecipientInfo" unique_id=688476749]
+[node name="EditingButtons" type="HBoxContainer" parent="RecipientInfo/Name" unique_id=1610784690]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="Name" type="Label" parent="RecipientInfo/TopLine" unique_id=337496366]
+[node name="ConfirmButton" type="Button" parent="RecipientInfo/Name/EditingButtons" unique_id=2084055881]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"MonospaceLabel"
-text = "John Doe"
+text = "BTN_CONFIRM"
+icon = ExtResource("5_rrsbf")
 
-[node name="MinimumAmount" type="SpinBox" parent="RecipientInfo/TopLine" unique_id=1683676801]
+[node name="CancelButton" type="Button" parent="RecipientInfo/Name/EditingButtons" unique_id=1062211757]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
-max_value = 1e+15
-value = 100.0
-suffix = "$"
-
-[node name="MarginContainer" type="MarginContainer" parent="RecipientInfo/TopLine" unique_id=2027691258]
-custom_minimum_size = Vector2(46, 40)
-layout_mode = 2
+text = "BTN_CANCEL"
+icon = ExtResource("4_jytd8")
 
 [node name="PanelContainer" type="PanelContainer" parent="RecipientInfo" unique_id=1778295358]
 layout_mode = 2

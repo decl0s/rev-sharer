@@ -4,6 +4,10 @@ signal recipient_created
 func create_recipient() -> void:
 	emit_signal("recipient_created")
 
+signal recipient_edited
+func edit_recipient() -> void:
+	emit_signal("recipient_edited")
+
 signal recipient_deleted
 func delete_recipient() -> void:
 	emit_signal("recipient_deleted")

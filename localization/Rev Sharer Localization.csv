@@ -31,6 +31,7 @@ BTN_SAVE_FILE,Save to file,Sauvegarder
 BTN_LOAD_FILE,Load file,Charger un fichier
 NEW_REC,Add Recipient,Ajouter un bénéficiaire
 NEW_REVENUE,Add Revenue,Ajouter une source de revenu
+BTN_EDIT,Edit,Modifier
 ---- REVENUE ----,,
 REV_YEARLY,Yearly,Annuel
 REV_QUARTERLY,Quarterly,Trimestriel
