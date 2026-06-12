@@ -30,6 +30,11 @@ func dev_populate_mock_recipients(amount : int) -> void: ## Creates mock data fo
 func get_recipient_index(desired_recipient : RecipientData) -> int:
 	return recipients.find(desired_recipient)
 
+func create_recipient(new_recipient : RecipientData) -> void:
+	recipients.append(new_recipient)
+	Sig.create_recipient()
+
+
 func add_rev_share_to_recipient(desired_recipient : RecipientData, desired_rev_share : RecipientRevShare) -> void:
 	recipients[get_recipient_index(desired_recipient)].shares.append(desired_rev_share)
 	print("Added revenue source to ", desired_recipient.name)

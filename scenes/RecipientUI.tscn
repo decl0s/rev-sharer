@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://m1nmsf1yhd31" path="res://scenes/recipient_ui.gd" id="2_2ayjd"]
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="2_48wiu"]
+[ext_resource type="Script" uid="uid://bnwe3kx31xgs3" path="res://scripts/recipients/new_recipient_button.gd" id="3_2ayjd"]
+[ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="3_48wiu"]
+[ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="5_bghvh"]
 
 [node name="RecipientList" type="Control" unique_id=103039386]
 layout_mode = 3
@@ -22,8 +25,81 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1430011238]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=679717719]
+layout_mode = 2
+
+[node name="RecipientsTitle" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=7521061]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "TAB_RECIPIENTS"
+
+[node name="NewRecipient" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=945836532]
+layout_mode = 2
+script = ExtResource("3_2ayjd")
+
+[node name="Name" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/NewRecipient" unique_id=1233745194]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/NewRecipient/Name" unique_id=205214708]
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+text = "REC_NAME"
+
+[node name="RecipientName" type="LineEdit" parent="VBoxContainer/PanelContainer/VBoxContainer/NewRecipient/Name" unique_id=1989968]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MinimumAmountInput" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/NewRecipient" unique_id=616773751]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/NewRecipient/MinimumAmountInput" unique_id=1664080340]
+layout_mode = 2
+tooltip_text = "MINIMUM_PAYOUT_DESC"
+mouse_filter = 1
+theme_type_variation = &"TooltipLabel"
+text = "MINIMUM_PAYOUT"
+
+[node name="MinimumAmount" type="SpinBox" parent="VBoxContainer/PanelContainer/VBoxContainer/NewRecipient/MinimumAmountInput" unique_id=615098213]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1e+15
+suffix = "$"
+
+[node name="AddRecipient" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/NewRecipient" unique_id=20858240]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NEW_REC"
+icon = ExtResource("3_48wiu")
+
+[node name="CancelNewRecipient" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/NewRecipient" unique_id=1965482701]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "BTN_CANCEL"
+icon = ExtResource("5_bghvh")
+
+[node name="NoRecipientsLabel" type="Label" parent="VBoxContainer" unique_id=1441734586]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"HeaderSmall"
+text = "NO_RECIPIENTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1603754625]
-custom_minimum_size = Vector2(0, 600)
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 

@@ -30,7 +30,7 @@ func update_labels() -> void:
 var want_to_delete_share : bool = false
 func _on_delete_revenue_pressed() -> void:
 	if want_to_delete_share == false:
-		%DeleteSourceButton.modulate = Color("ff8c8c")
+		%DeleteSourceButton.modulate = Color(Colors.red_tint)
 		want_to_delete_share = true
 		%DeleteRevSourceReset.start()
 		return

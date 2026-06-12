@@ -27,7 +27,7 @@ text = "UNDEFINED"
 
 [node name="PayoutSchedule" parent="." unique_id=1178957177 instance=ExtResource("1_2nuv6")]
 unique_name_in_owner = true
-self_modulate = Color(0.023529412, 0.8392157, 0.627451, 1)
+self_modulate = Color(0.9411765, 0.64705884, 0, 1)
 layout_mode = 2
 theme = null
 theme_type_variation = &"PanelHighlightContainer"

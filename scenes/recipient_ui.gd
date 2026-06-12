@@ -1,8 +1,9 @@
 extends Control
 
 func _ready() -> void:
-	populate_recipients()
+	repopulate_recipients()
 	
+	Sig.recipient_created.connect(repopulate_recipients)
 	Sig.recipient_deleted.connect(repopulate_recipients)
 
 const RECIPIENT_PANEL : Resource = preload("uid://drpajrjjw8av6")
@@ -12,6 +13,13 @@ func repopulate_recipients() -> void:
 		if child is RecipientPanelContainer:
 			child.queue_free()
 	populate_recipients()
+	
+	if Global.recipients.is_empty() == true:
+		%NoRecipientsLabel.show()
+		%ScrollContainer.hide()
+	else:
+		%NoRecipientsLabel.hide()
+		%ScrollContainer.show()
 
 func populate_recipients() -> void:
 	for recipient : RecipientData in Global.recipients:

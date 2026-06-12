@@ -10,4 +10,6 @@ var green : String = "#06d6a0"
 var purple : String = "#7806d6"
 var pink : String = "#d6069f"
 
+var red_tint : String = "#ff8c8c"
+
 var disabled_transparent : String ="#ffffff5a"

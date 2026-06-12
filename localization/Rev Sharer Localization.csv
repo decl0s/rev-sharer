@@ -1,19 +1,36 @@
 STRING,en,fr
+---- TABS ----,,
+TAB_REVENUE_SOURCES,Revenue Sources,Sources de revenus
+TAB_RECIPIENTS,Recipients,Bénéficiaires
+TAB_RECOUP,Recoup,Recouvrement 
+TAB_REVENUE,Revenue,Revenu
+TAB_DASHBOARD,Dashboard,Tableau de bord
 ---- RECIPIENTS ----,,
-REC_NAME,Recipient Name,Nom
+NO_RECIPIENTS,No recipients,Aucun bénéficiaires
+REC_NAME,Recipient Name,Bénéficiaire 
 MINIMUM_PAYOUT,Minimum Payout Amount,Montant minimum des paiement
+MINIMUM_PAYOUT_DESC,The minimum amount of money this recipient needs to be due before requiring a pay out.,Le montant minimum que ce bénéficiaire doit avoir accumulé avant de pouvoir demander un versement.
 REC_SOURCE,Revenue Source,Source de revenu
 REC_PERCENTAGE,Percentage Share,Pourcentage partagé
+REC_PERCENTAGE_DESC,Percentage of this revenue source that is shared to this recipient.,Pourcentage de cette source de revenu reversé à ce bénéficiaire.
 REC_SCHEDULE,Payout Schedule,Rythme de paiement
 REC_START_DATE,Start date,Date de départ
 REC_END_DATE,End date,Date de fin
 REC_ADD_REVENUE,Add Revenue,Ajouter le revenu
-REC_RECOUP_AMT,Recoup,Remboursement
+REC_RECOUP_AMT,Recoup,Recouvrables
+RECOUP_DESC,This recoupable amount changes the revenue share percentage until the recoupable amount of money is reimbursed.,Ce montant recouvrable modifie le pourcentage de partage des revenus jusqu'à ce que la somme due soit intégralement remboursée.
+RECOUP_AMOUNT_DESC,"To add or edit recoup amounts, change expenses in the recoup tab.","Pour ajouter ou modifier les montants recouvrables, modifiez les dépenses dans l'onglet « Recouvrement »"
 REC_RECOUP_PERCENTAGE,Recoup Rev Share,Pourcentage pendant remboursement
-REC_MIN_REV,Minimum Revenue,Revenu minimum
- ,,
+ -- BUTTONS --,,
 ARE_YOU_SURE,Are you sure?,Êtes-vous sûr?
 BTN_CANCEL,Cancel,Annuler
+BTN_YES,Yes,Oui
+BTN_NO,No,Non
+BTN_CONFIRM,Confirm,Confirmer
+BTN_SAVE_FILE,Save to file,Sauvegarder
+BTN_LOAD_FILE,Load file,Charger un fichier
+NEW_REC,Add Recipient,Ajouter un bénéficiaire
+NEW_REVENUE,Add Revenue,Ajouter une source de revenu
 ---- REVENUE ----,,
 REV_YEARLY,Yearly,Annuel
 REV_QUARTERLY,Quarterly,Trimestriel
