@@ -6,6 +6,8 @@ TAB_RECIPIENTS,Recipients,Bénéficiaires
 TAB_RECOUP,Recoup,Recouvrement 
 TAB_REVENUE,Revenue,Revenu
 TAB_PAYMENTS,Payments,Paiements
+---- REVENUE SOURCES ---,,
+NO_REVENUE_SOURCES,No revenue sources,Aucune sources de revenus
 ---- RECIPIENTS ----,,
 NO_RECIPIENTS,No recipients,Aucun bénéficiaires
 REC_NAME,Recipient Name,Bénéficiaire 
@@ -31,9 +33,13 @@ BTN_CONFIRM,Confirm,Confirmer
 BTN_SAVE_FILE,Save to file,Sauvegarder
 BTN_LOAD_FILE,Load file,Charger un fichier
 NEW_REC,Add Recipient,Ajouter un bénéficiaire
-NEW_REVENUE,Add Revenue,Ajouter une source de revenu
+NEW_REVENUE_SOURCE,Add Revenue Source,Ajouter une source de revenu
+NEW_REVENUE,Add Revenue,Ajouter du revenu
 BTN_EDIT,Edit,Modifier
+BTN_ADD,Add,Ajouter
 ---- REVENUE ----,,
 REV_YEARLY,Yearly,Annuel
 REV_QUARTERLY,Quarterly,Trimestriel
 REV_MONTHLY,Monthly,Mensuel
+---- GENERIC ----,,
+NAME,Name,Nom

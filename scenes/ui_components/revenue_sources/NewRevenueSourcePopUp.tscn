@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://18ycg24nyd26"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_ax6mc"]
+[ext_resource type="Script" uid="uid://bxpm573dvjrcs" path="res://scripts/new_revenue_pop_up.gd" id="2_j7yob"]
+[ext_resource type="Script" uid="uid://644sf0qwgfhn" path="res://scripts/RevenueSourceData.gd" id="3_5avhb"]
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="3_bicsu"]
+[ext_resource type="PackedScene" uid="uid://c06qsnv77b2mt" path="res://scenes/ui_components/editable_option_button.tscn" id="4_j7yob"]
+[ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="5_bicsu"]
+[ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="6_kkghb"]
+
+[sub_resource type="Resource" id="Resource_ncjjq"]
+script = ExtResource("3_5avhb")
+metadata/_custom_type_script = "uid://644sf0qwgfhn"
+
+[node name="CreatePopUp" type="Control" unique_id=882423376 node_paths=PackedStringArray("inputs", "required_inputs")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ax6mc")
+script = ExtResource("2_j7yob")
+resource_type = SubResource("Resource_ncjjq")
+inputs = [NodePath("PanelContainer/VBoxContainer/EditableLabel"), NodePath("PanelContainer/VBoxContainer/EditableOptionButton")]
+required_inputs = [NodePath("PanelContainer/VBoxContainer/EditableLabel")]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=175602276]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1258099619]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer" unique_id=189830793]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "NEW_REVENUE_SOURCE"
+
+[node name="Padding" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=2007798573]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1471411845]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "NAME"
+
+[node name="EditableLabel" parent="PanelContainer/VBoxContainer" unique_id=1900893206 instance=ExtResource("3_bicsu")]
+layout_mode = 2
+target_property = "name"
+is_input_only = true
+
+[node name="Label" parent="PanelContainer/VBoxContainer/EditableLabel" index="0" unique_id=1906058850]
+text = ""
+
+[node name="LineEdit" parent="PanelContainer/VBoxContainer/EditableLabel" index="1" unique_id=1354312079]
+placeholder_text = ""
+
+[node name="PayoutSchedule" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1829213201]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "REC_SCHEDULE"
+
+[node name="EditableOptionButton" parent="PanelContainer/VBoxContainer" unique_id=213529847 instance=ExtResource("4_j7yob")]
+layout_mode = 2
+target_property = "payout_schedule"
+target_enum = &"Schedule"
+is_input_only = true
+
+[node name="Padding2" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=1938277926]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1957262313]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1908327269]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BTN_ADD"
+icon = ExtResource("5_bicsu")
+
+[node name="Cancel" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=168178042]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BTN_CANCEL"
+icon = ExtResource("6_kkghb")
+
+[editable path="PanelContainer/VBoxContainer/EditableLabel"]

@@ -19,3 +19,11 @@ func delete_revenue_from_recipient() -> void:
 signal revenue_added_to_recipient
 func add_revenue_to_recipient() -> void:
 	emit_signal("revenue_added_to_recipient")
+
+signal created_revenue_source
+func create_revenue_source() -> void:
+	emit_signal("created_revenue_source")
+
+signal revenue_source_edited
+func edit_revenue_source() -> void:
+	emit_signal("revenue_source_edited")

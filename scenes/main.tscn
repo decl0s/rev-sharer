@@ -79,3 +79,25 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 metadata/_tab_name = "TAB_PAYMENTS"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=59820792]
+
+[node name="PopUpContainer" type="Control" parent="CanvasLayer" unique_id=860662289]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overlay" type="ColorRect" parent="CanvasLayer/PopUpContainer" unique_id=2140676802]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4509804)

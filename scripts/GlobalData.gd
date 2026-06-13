@@ -38,6 +38,9 @@ func create_recipient(new_recipient : RecipientData) -> void:
 	recipients.append(new_recipient)
 	Sig.create_recipient()
 
+func create_revenue_source(new_revenue_source : RevenueSourceData) -> void:
+	revenue_sources.append(new_revenue_source)
+	Sig.create_revenue_source()
 
 func add_rev_share_to_recipient(desired_recipient : RecipientData, desired_rev_share : RecipientRevShare) -> void:
 	recipients[get_recipient_index(desired_recipient)].shares.append(desired_rev_share)

@@ -50,6 +50,7 @@ folder_colors={
 [internationalization]
 
 locale/translations=PackedStringArray("res://localization/Rev Sharer Localization.en.translation", "res://localization/Rev Sharer Localization.fr.translation")
+locale/test="fr"
 
 [physics]
 

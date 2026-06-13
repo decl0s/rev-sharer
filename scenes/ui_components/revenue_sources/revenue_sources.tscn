@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bbp6xb35v2ap0"]
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_ooegl"]
+[ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="3_5cww5"]
+[ext_resource type="Script" uid="uid://ga80un17gass" path="res://scripts/pop_up_creator.gd" id="3_opfwq"]
+[ext_resource type="PackedScene" uid="uid://18ycg24nyd26" path="res://scenes/ui_components/revenue_sources/NewRevenueSourcePopUp.tscn" id="4_ol8pw"]
 
 [node name="RevenueSources" type="Control" unique_id=137687451]
 layout_mode = 3
@@ -21,3 +24,27 @@ grow_vertical = 2
 text = "TAB_REVENUE_SOURCES"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1274026828]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 111.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=833212645]
+layout_mode = 2
+
+[node name="RevenueTitle" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1563980682]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "TAB_REVENUE_SOURCES"
+
+[node name="AddRecipient" type="Button" parent="PanelContainer/VBoxContainer" unique_id=846594355]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "NEW_REVENUE_SOURCE"
+icon = ExtResource("3_5cww5")
+script = ExtResource("3_opfwq")
+node_to_pop_up = ExtResource("4_ol8pw")
