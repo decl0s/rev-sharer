@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dv47c10o17man"]
+
+[ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="1_3c3en"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_5v7fe"]
+
+[node name="EditableLabel" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field")]
+theme = ExtResource("1_5v7fe")
+script = ExtResource("1_3c3en")
+label_node = NodePath("Label")
+input_field = NodePath("LineEdit")
+
+[node name="Label" type="Label" parent="." unique_id=1906058850]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "John Doe"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1354312079]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+placeholder_text = "John Doe"

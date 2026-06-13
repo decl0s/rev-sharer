@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://hgqcnqfmqrxx" path="res://assets/icons/delete-forever.svg" id="1_x2bhw"]
 [ext_resource type="Script" uid="uid://h5vqr3ya0rbx" path="res://scenes/ui_components/recipient/recipient_panel.gd" id="2_k5xq0"]
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="2_xtf0r"]
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="3_jytd8"]
 [ext_resource type="PackedScene" uid="uid://cbu0r3xa05npi" path="res://scenes/ui_components/recipient/revenue_source_line.tscn" id="3_k5xq0"]
-[ext_resource type="Texture2D" uid="uid://bu55ll07alykd" path="res://assets/icons/pencil.svg" id="3_lslu4"]
-[ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="4_jytd8"]
-[ext_resource type="Texture2D" uid="uid://b8rfpyqakqrue" path="res://assets/icons/check.svg" id="5_rrsbf"]
+[ext_resource type="PackedScene" uid="uid://c4mg3cj3crej" path="res://scenes/ui_components/editable_money.tscn" id="4_ediyp"]
+[ext_resource type="PackedScene" uid="uid://c2q66ap75cws0" path="res://scenes/ui_components/edit_button.tscn" id="4_rrsbf"]
 [ext_resource type="PackedScene" uid="uid://lcnnjd1hhfvj" path="res://scenes/ui_components/recipient/add_revenue_ui.tscn" id="8_rrsbf"]
 
 [node name="RecipientPanel" type="PanelContainer" unique_id=49694863]
@@ -31,19 +31,10 @@ size_flags_horizontal = 3
 theme_type_variation = &"LabelSubInfo"
 text = "REC_NAME"
 
-[node name="Name" type="Label" parent="RecipientInfo/Name/Name" unique_id=337496366]
+[node name="NameLabel" parent="RecipientInfo/Name/Name" unique_id=1900893206 instance=ExtResource("3_jytd8")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "John Doe"
-vertical_alignment = 1
-
-[node name="RecipientNameEdit" type="LineEdit" parent="RecipientInfo/Name/Name" unique_id=82125987]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-placeholder_text = "John Doe"
+target_property = "name"
 
 [node name="MinimumPaymentAmount" type="VBoxContainer" parent="RecipientInfo/Name" unique_id=180609594]
 layout_mode = 2
@@ -57,32 +48,20 @@ mouse_filter = 1
 theme_type_variation = &"LabelSubInfo"
 text = "MINIMUM_PAYOUT"
 
-[node name="PayoutAmount" type="Label" parent="RecipientInfo/Name/MinimumPaymentAmount" unique_id=356698565]
+[node name="MinimumPayment" parent="RecipientInfo/Name/MinimumPaymentAmount" unique_id=1730520255 instance=ExtResource("4_ediyp")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-tooltip_text = "MINIMUM_PAYOUT_DESC"
-mouse_filter = 1
-text = "UNDEFINED"
-
-[node name="MinimumAmountEdit" type="SpinBox" parent="RecipientInfo/Name/MinimumPaymentAmount" unique_id=1683676801]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1e+15
-value = 100.0
+target_property = "minimum_payout"
 suffix = "$"
 
 [node name="BaseButtons" type="HBoxContainer" parent="RecipientInfo/Name" unique_id=445234915]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="EditRecipientButton" type="Button" parent="RecipientInfo/Name/BaseButtons" unique_id=1731812268]
+[node name="EditRecipientButton" parent="RecipientInfo/Name/BaseButtons" unique_id=334867345 node_paths=PackedStringArray("editable_nodes") instance=ExtResource("4_rrsbf")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "BTN_EDIT"
-icon = ExtResource("3_lslu4")
+editable_nodes = [NodePath("../../Name/NameLabel"), NodePath("../../MinimumPaymentAmount/MinimumPayment")]
 
 [node name="DeleteRecipientButton" type="Button" parent="RecipientInfo/Name/BaseButtons" unique_id=639594130]
 unique_name_in_owner = true
@@ -98,23 +77,6 @@ icon = ExtResource("1_x2bhw")
 unique_name_in_owner = true
 wait_time = 5.0
 one_shot = true
-
-[node name="EditingButtons" type="HBoxContainer" parent="RecipientInfo/Name" unique_id=1610784690]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="ConfirmButton" type="Button" parent="RecipientInfo/Name/EditingButtons" unique_id=2084055881]
-unique_name_in_owner = true
-layout_mode = 2
-text = "BTN_CONFIRM"
-icon = ExtResource("5_rrsbf")
-
-[node name="CancelButton" type="Button" parent="RecipientInfo/Name/EditingButtons" unique_id=1062211757]
-unique_name_in_owner = true
-layout_mode = 2
-text = "BTN_CANCEL"
-icon = ExtResource("4_jytd8")
 
 [node name="PanelContainer" type="PanelContainer" parent="RecipientInfo" unique_id=1778295358]
 layout_mode = 2

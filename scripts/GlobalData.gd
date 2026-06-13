@@ -30,6 +30,10 @@ func dev_populate_mock_recipients(amount : int) -> void: ## Creates mock data fo
 func get_recipient_index(desired_recipient : RecipientData) -> int:
 	return recipients.find(desired_recipient)
 
+func get_revenue_source_index(desired_revenue_source : RevenueSourceData) -> int:
+	return recipients.find(desired_revenue_source)
+
+
 func create_recipient(new_recipient : RecipientData) -> void:
 	recipients.append(new_recipient)
 	Sig.create_recipient()

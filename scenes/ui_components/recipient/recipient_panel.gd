@@ -6,69 +6,21 @@ class_name RecipientPanelContainer
 var recipient_index : int
 
 func _ready() -> void:
-	update_labels()
 	recipient_index = Global.recipients.find(recipient)
 	
-	%MinimumAmountEdit.value_changed.connect(_on_min_payout_value_changed)
 	%DeleteRecipientButton.pressed.connect(_on_delete_recipient_pressed)
 	%delete_recipient_reset.timeout.connect(_on_delete_recipient_reset_timeout)
 	
-	%EditRecipientButton.pressed.connect(_on_edit_recipient_pressed)
-	%CancelButton.pressed.connect(_on_cancel_edit_recipient_pressed)
-	%ConfirmButton.pressed.connect(_on_confirm_edit_recipient_pressed)
+	%NameLabel.target_resource = recipient
+	%MinimumPayment.target_resource = recipient
 	
 	Sig.revenue_deleted_from_recipient.connect(repopulate_revenues)
 	Sig.revenue_added_to_recipient.connect(repopulate_revenues)
-	Sig.recipient_edited.connect(update_labels)
 
-func _on_edit_recipient_pressed() -> void:
-	%EditingButtons.show()
-	%RecipientNameEdit.show()
-	%MinimumAmountEdit.show()
-	
-	%RecipientNameEdit.text = recipient.name
-	%MinimumAmountEdit.value = recipient.minimum_payout
-	
-	%BaseButtons.hide()
-	%Name.hide()
-	%PayoutAmount.hide()
-
-func _on_cancel_edit_recipient_pressed() -> void:
-	%EditingButtons.hide()
-	%RecipientNameEdit.hide()
-	%MinimumAmountEdit.hide()
-	
-	%RecipientNameEdit.text = recipient.name
-	%MinimumAmountEdit.value = recipient.minimum_payout
-	
-	%BaseButtons.show()
-	%Name.show()
-	%PayoutAmount.show()
-
-func _on_confirm_edit_recipient_pressed() -> void:
-	recipient.name = %RecipientNameEdit.text
-	recipient.minimum_payout = %MinimumAmountEdit.value
-	Sig.edit_recipient()
-	
-	%EditingButtons.hide()
-	%RecipientNameEdit.hide()
-	%MinimumAmountEdit.hide()
-	
-	%RecipientNameEdit.text = recipient.name
-	%MinimumAmountEdit.value = recipient.minimum_payout
-	
-	%BaseButtons.show()
-	%Name.show()
-	%PayoutAmount.show()
 
 func init() -> void: ## Initializes the recipient panel.
 	%AddRevenue.recipient = recipient
-	update_labels()
 	repopulate_revenues()
-
-func update_labels() -> void:
-	%Name.text = recipient.name
-	%PayoutAmount.text = str(recipient.minimum_payout) + "$"
 
 func _on_min_payout_value_changed() -> void:
 	Global.recipients[recipient_index].minimum_payout = %MinimumAmountEdit.value

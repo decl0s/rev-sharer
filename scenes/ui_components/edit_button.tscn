@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c2q66ap75cws0"]
+
+[ext_resource type="Texture2D" uid="uid://bu55ll07alykd" path="res://assets/icons/pencil.svg" id="1_d0q3t"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_vh3yc"]
+[ext_resource type="Script" uid="uid://dk1y3fs3t5owf" path="res://scripts/edit_button.gd" id="3_iiqg8"]
+[ext_resource type="Texture2D" uid="uid://b8rfpyqakqrue" path="res://assets/icons/check.svg" id="4_3ipb6"]
+[ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="5_mvg6l"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=396085274]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_vh3yc")
+script = ExtResource("3_iiqg8")
+
+[node name="EditRecipientButton" type="Button" parent="." unique_id=334867345]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_vh3yc")
+text = "BTN_EDIT"
+icon = ExtResource("1_d0q3t")
+
+[node name="EditingButtons" type="HBoxContainer" parent="." unique_id=400208983]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ConfirmButton" type="Button" parent="EditingButtons" unique_id=413241607]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BTN_CONFIRM"
+icon = ExtResource("4_3ipb6")
+
+[node name="CancelButton" type="Button" parent="EditingButtons" unique_id=758421790]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BTN_CANCEL"
+icon = ExtResource("5_mvg6l")

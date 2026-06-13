@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://br74b8suhhx26"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_61q4b"]
+[ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="2_p844g"]
+
+[node name="EditableYear" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field")]
+theme = ExtResource("1_61q4b")
+script = ExtResource("2_p844g")
+label_node = NodePath("Label")
+input_field = NodePath("YearInput")
+
+[node name="Label" type="Label" parent="." unique_id=1906058850]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "YEAR"
+vertical_alignment = 1
+
+[node name="YearInput" type="SpinBox" parent="." unique_id=2036994799]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+min_value = 1900.0
+max_value = 9999.0
+value = 1900.0
+rounded = true

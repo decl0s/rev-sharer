@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c4mg3cj3crej"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_6bhlg"]
+[ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="2_gy6qj"]
+
+[node name="EditableMoney" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field")]
+theme = ExtResource("1_6bhlg")
+script = ExtResource("2_gy6qj")
+label_node = NodePath("Label")
+input_field = NodePath("MoneySpinBox")
+suffix = "$"
+
+[node name="Label" type="Label" parent="." unique_id=1906058850]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "UNDEFINED$"
+vertical_alignment = 1
+
+[node name="MoneySpinBox" type="SpinBox" parent="." unique_id=2040269574]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1e+15
+value = 100.0
+suffix = "$"
