@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0p80jfe2rs36"]
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_e84rm"]
-[ext_resource type="Script" uid="uid://wgo2onf20fif" path="res://scenes/ui_components/highlight_container.gd" id="2_54pc5"]
+[ext_resource type="Script" uid="uid://wgo2onf20fif" path="res://scenes/ui_components/recipient/highlight_container.gd" id="2_54pc5"]
 
 [node name="HighlightContainer" type="PanelContainer" unique_id=517991368]
 size_flags_horizontal = 2

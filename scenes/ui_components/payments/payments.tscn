@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cfv4k386fq1xw"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_ongtr"]
+
+[node name="Payments" type="Control" unique_id=1614067100]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ongtr")
+
+[node name="Placeholder" type="Label" parent="." unique_id=1379284090]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TAB_PAYMENTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Placeholder2" type="Label" parent="." unique_id=444141474]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Record Payments for different revenue sources."
+horizontal_alignment = 1
+vertical_alignment = 1

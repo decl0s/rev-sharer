@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://b8imemr3ibnh"]
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://coxtlvqcq551v" path="res://scenes/RecipientUI.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://coxtlvqcq551v" path="res://scenes/ui_components/recipient/RecipientUI.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://cxysttop3iqc4" path="res://assets/icons/view-dashboard.svg" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bhlpisx5o1m20" path="res://scenes/ui_components/dashboard/dashboard.tscn" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://bdocix1u3j6m8" path="res://assets/icons/cash-multiple.svg" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://b55jtjbqbjh00" path="res://assets/icons/account.svg" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bbp6xb35v2ap0" path="res://scenes/ui_components/revenue_sources/revenue_sources.tscn" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bvuompqg70xo8" path="res://assets/icons/credit-card.svg" id="5_trceg"]
+[ext_resource type="Texture2D" uid="uid://bv5d62wf42lpn" path="res://assets/icons/bank-transfer.svg" id="5_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://btjuj70vs7ti3" path="res://assets/icons/finance.svg" id="6_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://cn2anlm8ih68u" path="res://scenes/ui_components/recoup/recoup.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://dmgg30xu5abmb" path="res://scenes/ui_components/revenue/revenue.tscn" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://cfv4k386fq1xw" path="res://scenes/ui_components/payments/payments.tscn" id="10_ya4ey"]
 
 [node name="Main" type="Control" unique_id=330150435]
 layout_mode = 3
@@ -24,8 +34,48 @@ theme = ExtResource("1_o5qli")
 current_tab = 0
 tab_0/title = "TAB_DASHBOARD"
 tab_0/icon = ExtResource("2_jyhfs")
+tab_1/title = "TAB_REVENUE_SOURCES"
+tab_1/icon = ExtResource("3_tefeu")
+tab_2/title = "TAB_RECIPIENTS"
+tab_2/icon = ExtResource("4_o6xl0")
+tab_3/title = "TAB_RECOUP"
+tab_3/icon = ExtResource("5_trceg")
+tab_4/title = "TAB_REVENUE"
+tab_4/icon = ExtResource("6_a8y0u")
+tab_5/title = "TAB_PAYMENTS"
+tab_5/icon = ExtResource("5_ya4ey")
 
-[node name="RecipientList" parent="TabContainer" unique_id=103039386 instance=ExtResource("2_0wfyh")]
+[node name="Dashboard" parent="TabContainer" unique_id=1225378070 instance=ExtResource("3_jyhfs")]
 layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = "TAB_DASHBOARD"
+
+[node name="RevenueSources" parent="TabContainer" unique_id=137687451 instance=ExtResource("4_tbgi4")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "TAB_REVENUE_SOURCES"
+
+[node name="RecipientList" parent="TabContainer" unique_id=103039386 instance=ExtResource("2_0wfyh")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "TAB_RECIPIENTS"
+
+[node name="Recoup" parent="TabContainer" unique_id=1282158751 instance=ExtResource("8_tipki")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+metadata/_tab_name = "TAB_RECOUP"
+
+[node name="Revenue" parent="TabContainer" unique_id=1824323776 instance=ExtResource("9_choun")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+metadata/_tab_name = "TAB_REVENUE"
+
+[node name="Payments" parent="TabContainer" unique_id=1614067100 instance=ExtResource("10_ya4ey")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+metadata/_tab_name = "TAB_PAYMENTS"

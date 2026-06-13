@@ -1,10 +1,11 @@
 STRING,en,fr
 ---- TABS ----,,
+TAB_DASHBOARD,Dashboard,Tableau de bord
 TAB_REVENUE_SOURCES,Revenue Sources,Sources de revenus
 TAB_RECIPIENTS,Recipients,Bénéficiaires
 TAB_RECOUP,Recoup,Recouvrement 
 TAB_REVENUE,Revenue,Revenu
-TAB_DASHBOARD,Dashboard,Tableau de bord
+TAB_PAYMENTS,Payments,Paiements
 ---- RECIPIENTS ----,,
 NO_RECIPIENTS,No recipients,Aucun bénéficiaires
 REC_NAME,Recipient Name,Bénéficiaire 
@@ -18,7 +19,7 @@ REC_START_DATE,Start date,Date de départ
 REC_END_DATE,End date,Date de fin
 REC_ADD_REVENUE,Add Revenue,Ajouter le revenu
 REC_RECOUP_AMT,Recoup,Recouvrables
-RECOUP_DESC,This recoupable amount changes the revenue share percentage until the recoupable amount of money is reimbursed.,Ce montant recouvrable modifie le pourcentage de partage des revenus jusqu'à ce que la somme due soit intégralement remboursée.
+RECOUP_DESC,This recoupable amount changes the revenue share percentage until the recoupable amount of money is fully reimbursed.,Ce montant recouvrable modifie le pourcentage de partage des revenus jusqu'à ce que la somme due soit intégralement remboursée.
 RECOUP_AMOUNT_DESC,"To add or edit recoup amounts, change expenses in the recoup tab.","Pour ajouter ou modifier les montants recouvrables, modifiez les dépenses dans l'onglet « Recouvrement »"
 REC_RECOUP_PERCENTAGE,Recoup Rev Share,Pourcentage pendant remboursement
  -- BUTTONS --,,

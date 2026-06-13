@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bbp6xb35v2ap0"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_ooegl"]
+
+[node name="RevenueSources" type="Control" unique_id=137687451]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ooegl")
+
+[node name="Placeholder" type="Label" parent="." unique_id=411450236]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TAB_REVENUE_SOURCES"
+horizontal_alignment = 1
+vertical_alignment = 1
