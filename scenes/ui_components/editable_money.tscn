@@ -2,13 +2,16 @@
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_6bhlg"]
 [ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="2_gy6qj"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="3_q6y8m"]
 
-[node name="EditableMoney" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field")]
+[node name="EditableMoney" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("highlight_container", "label_node", "input_field")]
+size_flags_vertical = 3
 theme = ExtResource("1_6bhlg")
 script = ExtResource("2_gy6qj")
+suffix = "$"
+highlight_container = NodePath("HighlightContainer")
 label_node = NodePath("Label")
 input_field = NodePath("MoneySpinBox")
-suffix = "$"
 
 [node name="Label" type="Label" parent="." unique_id=1906058850]
 unique_name_in_owner = true
@@ -26,3 +29,7 @@ size_flags_horizontal = 3
 max_value = 1e+15
 value = 100.0
 suffix = "$"
+
+[node name="HighlightContainer" parent="." unique_id=517991368 instance=ExtResource("3_q6y8m")]
+visible = false
+layout_mode = 2

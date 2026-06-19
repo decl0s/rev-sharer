@@ -2,10 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_u8r0n"]
 [ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="2_d6ibw"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="3_d6ibw"]
 
-[node name="EditableOptionButton" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field")]
+[node name="EditableOptionButton" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("highlight_container", "label_node", "input_field")]
+size_flags_vertical = 3
 theme = ExtResource("1_u8r0n")
 script = ExtResource("2_d6ibw")
+highlight_container = NodePath("HighlightContainer")
 label_node = NodePath("Label")
 input_field = NodePath("RevenueOption")
 
@@ -22,3 +25,9 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="HighlightContainer" parent="." unique_id=517991368 instance=ExtResource("3_d6ibw")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3

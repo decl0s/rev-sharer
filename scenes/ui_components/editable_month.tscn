@@ -2,10 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_rucwa"]
 [ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="2_2t36o"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="3_2t36o"]
 
-[node name="EditableMonth" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field")]
+[node name="EditableMonth" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("highlight_container", "label_node", "input_field")]
+size_flags_vertical = 3
 theme = ExtResource("1_rucwa")
 script = ExtResource("2_2t36o")
+highlight_container = NodePath("HighlightContainer")
 label_node = NodePath("Label")
 input_field = NodePath("MonthInput")
 
@@ -25,3 +28,7 @@ min_value = 1.0
 max_value = 12.0
 value = 1.0
 rounded = true
+
+[node name="HighlightContainer" parent="." unique_id=517991368 instance=ExtResource("3_2t36o")]
+visible = false
+layout_mode = 2

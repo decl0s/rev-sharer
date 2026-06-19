@@ -40,7 +40,7 @@ func reset_inputs() -> void:
 	%RevenueOption.clear() # Reset OptionButton
 	
 	%RevenueOption.selected = -1
-	
+	%LayerInput.value = 1
 	%PercentageShare.value = 0.0
 	%StartMonthInput.value = 1
 	%StartYearInput.value = 1900.0
@@ -49,6 +49,10 @@ func reset_inputs() -> void:
 
 func _on_confirm_revenue_pressed() -> void:
 	var new_share : RecipientRevShare = RecipientRevShare.new()
+	new_share.id = Global.next_rev_share_id
+	Global.next_rev_share_id += 1
+	new_share.linked_recipient = recipient
+	new_share.layer = %LayerInput.value
 	new_share.revenue_source = option_items[%RevenueOption.selected]
 	new_share.percentage = %PercentageShare.value * 0.01
 	new_share.start_month = %StartMonthInput.value

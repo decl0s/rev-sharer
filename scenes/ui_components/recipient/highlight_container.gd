@@ -1,5 +1,6 @@
 @tool
 extends PanelContainer
+class_name HighlightContainer
 
 enum ColorStyle {
 	White,

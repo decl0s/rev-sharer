@@ -6,7 +6,7 @@ class_name RecipientPanelContainer
 var recipient_index : int
 
 func _ready() -> void:
-	recipient_index = Global.recipients.find(recipient)
+	recipient_index = recipient.id
 	
 	%DeleteRecipientButton.pressed.connect(_on_delete_recipient_pressed)
 	%delete_recipient_reset.timeout.connect(_on_delete_recipient_reset_timeout)
@@ -52,9 +52,15 @@ func repopulate_revenues() -> void:
 		if child is RecipientRevenueLineUI:
 			%RevenueSourceContainer.remove_child(child)
 	
-	for rev_share : RecipientRevShare in recipient.shares : # Repopulate Lines
+	var i : int = 0
+	for rev_share : RecipientRevShare in recipient.shares.values() : # Repopulate Lines
 		var revenue_line : RecipientRevenueLineUI = REVENUE_SOURCE_LINE.instantiate()
+		if i == 0 :
+			revenue_line.show_titles = true
+		else:
+			revenue_line.show_titles = false
 		revenue_line.recipient = recipient
 		revenue_line.recipient_rev_share = rev_share
 		revenue_line.update_labels()
 		%RevenueSourceContainer.add_child(revenue_line)
+		i += 1

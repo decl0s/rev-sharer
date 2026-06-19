@@ -2,10 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_61q4b"]
 [ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="2_p844g"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="3_6n8u7"]
 
-[node name="EditableYear" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field")]
+[node name="EditableYear" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("highlight_container", "label_node", "input_field")]
+size_flags_vertical = 3
 theme = ExtResource("1_61q4b")
 script = ExtResource("2_p844g")
+highlight_container = NodePath("HighlightContainer")
 label_node = NodePath("Label")
 input_field = NodePath("YearInput")
 
@@ -25,3 +28,7 @@ min_value = 1900.0
 max_value = 9999.0
 value = 1900.0
 rounded = true
+
+[node name="HighlightContainer" parent="." unique_id=517991368 instance=ExtResource("3_6n8u7")]
+visible = false
+layout_mode = 2

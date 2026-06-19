@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://citx6q6esxrk" path="res://scenes/ui_components/editable_month.tscn" id="7_thaag"]
 [ext_resource type="PackedScene" uid="uid://do3h17ajnrca1" path="res://scenes/ui_components/editable_percentage.tscn" id="7_utwq2"]
 [ext_resource type="PackedScene" uid="uid://br74b8suhhx26" path="res://scenes/ui_components/editable_year.tscn" id="8_vwhhy"]
-[ext_resource type="PackedScene" uid="uid://c2q66ap75cws0" path="res://scenes/ui_components/edit_button.tscn" id="9_vwhhy"]
 
 [node name="RevenueSourceLine" type="HBoxContainer" unique_id=429046603]
 offset_right = 1490.0
@@ -27,14 +26,20 @@ size_flags_horizontal = 3
 theme_type_variation = &"LabelSubInfo"
 text = "REC_SOURCE"
 
-[node name="SourceName" parent="SourceName" unique_id=1900893206 instance=ExtResource("5_id31w")]
+[node name="EditableLabel" parent="SourceName" unique_id=1900893206 instance=ExtResource("5_id31w")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 target_property = "name"
+subclass_to_get_var_from = &"revenue_source"
+target_enum = null
+is_input_only = null
+prefix = null
+suffix = null
+use_highlight_panel = null
+highlight_color = null
 
 [node name="Layer" type="VBoxContainer" parent="." unique_id=478219296]
-custom_maximum_size = Vector2(150, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -50,7 +55,15 @@ text = "SHARE_LAYER_TITLE"
 [node name="EditableInt" parent="Layer" unique_id=1760929577 instance=ExtResource("6_hfwks")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 target_property = "layer"
+subclass_to_get_var_from = null
+target_enum = null
+is_input_only = null
+prefix = null
+suffix = null
+use_highlight_panel = null
+highlight_color = null
 
 [node name="Percentage2" type="VBoxContainer" parent="." unique_id=1770875288]
 layout_mode = 2
@@ -67,7 +80,12 @@ text = "REC_PERCENTAGE"
 [node name="EditablePercentage" parent="Percentage2" unique_id=784402812 instance=ExtResource("7_utwq2")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 target_property = "percentage"
+subclass_to_get_var_from = null
+target_enum = null
+is_input_only = null
+prefix = null
 use_highlight_panel = true
 highlight_color = 4
 
@@ -84,8 +102,13 @@ text = "REC_SCHEDULE"
 [node name="Payout" parent="Payout" unique_id=2027637426 instance=ExtResource("7_4agjj")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 target_property = "payout_schedule"
-target_enum = &"Schedule"
+subclass_to_get_var_from = &"revenue_source"
+target_enum = null
+is_input_only = null
+prefix = null
+suffix = null
 use_highlight_panel = true
 highlight_color = 2
 
@@ -105,6 +128,10 @@ text = "REC_RECOUP_AMT"
 unique_name_in_owner = true
 layout_mode = 2
 target_property = "recoup_percentage"
+subclass_to_get_var_from = null
+target_enum = null
+is_input_only = null
+prefix = null
 use_highlight_panel = true
 highlight_color = 1
 
@@ -120,17 +147,30 @@ text = "REC_START_DATE"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Start" unique_id=931533718]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="EditableMonth" parent="Start/HBoxContainer" unique_id=1333173363 instance=ExtResource("7_thaag")]
 unique_name_in_owner = true
 layout_mode = 2
 target_property = "start_month"
+subclass_to_get_var_from = null
+target_enum = null
+is_input_only = null
+prefix = null
+suffix = null
+use_highlight_panel = null
+highlight_color = null
 
 [node name="EditableYear" parent="Start/HBoxContainer" unique_id=1026207550 instance=ExtResource("8_vwhhy")]
 unique_name_in_owner = true
 layout_mode = 2
 target_property = "start_year"
+subclass_to_get_var_from = null
+target_enum = null
+is_input_only = null
+prefix = null
+suffix = null
+use_highlight_panel = null
+highlight_color = null
 
 [node name="End" type="VBoxContainer" parent="." unique_id=1447998928]
 layout_mode = 2
@@ -145,32 +185,39 @@ text = "REC_END_DATE"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="End" unique_id=823168444]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="EditableMonth2" parent="End/HBoxContainer" unique_id=185146962 instance=ExtResource("7_thaag")]
 unique_name_in_owner = true
 layout_mode = 2
 target_property = "end_month"
+subclass_to_get_var_from = null
+target_enum = null
+is_input_only = null
+prefix = null
+suffix = null
+use_highlight_panel = null
+highlight_color = null
 
 [node name="EditableYear2" parent="End/HBoxContainer" unique_id=2143529713 instance=ExtResource("8_vwhhy")]
 unique_name_in_owner = true
 layout_mode = 2
 target_property = "end_year"
+subclass_to_get_var_from = null
+target_enum = null
+is_input_only = null
+prefix = null
+suffix = null
+use_highlight_panel = null
+highlight_color = null
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=725918808]
 visible = false
 custom_minimum_size = Vector2(46, 0)
 layout_mode = 2
 
-[node name="Edit" parent="." unique_id=396085274 node_paths=PackedStringArray("editable_nodes") instance=ExtResource("9_vwhhy")]
-layout_mode = 2
-size_flags_vertical = 8
-editable_nodes = [NodePath("../Layer/EditableInt"), NodePath("../Percentage2/EditablePercentage"), NodePath("../Recoup/Recoup"), NodePath("../Start/HBoxContainer/EditableMonth"), NodePath("../Start/HBoxContainer/EditableYear"), NodePath("../End/HBoxContainer/EditableMonth2"), NodePath("../End/HBoxContainer/EditableYear2")]
-
 [node name="DeleteSourceButton" type="Button" parent="." unique_id=1727194114]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 8
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)

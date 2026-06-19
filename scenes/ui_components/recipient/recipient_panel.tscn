@@ -35,6 +35,7 @@ text = "REC_NAME"
 unique_name_in_owner = true
 layout_mode = 2
 target_property = "name"
+highlight_color = 3
 
 [node name="MinimumPaymentAmount" type="VBoxContainer" parent="RecipientInfo/Name" unique_id=180609594]
 layout_mode = 2
@@ -52,7 +53,6 @@ text = "MINIMUM_PAYOUT"
 unique_name_in_owner = true
 layout_mode = 2
 target_property = "minimum_payout"
-suffix = "$"
 
 [node name="BaseButtons" type="HBoxContainer" parent="RecipientInfo/Name" unique_id=445234915]
 unique_name_in_owner = true
@@ -87,6 +87,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Titles" type="HBoxContainer" parent="RecipientInfo/PanelContainer/RevenueSourceContainer" unique_id=581831984]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 
@@ -95,6 +96,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"LabelSubInfo"
 text = "REC_SOURCE"
+
+[node name="Layer" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=335626669]
+custom_maximum_size = Vector2(100, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "REC_PERCENTAGE_DESC"
+mouse_filter = 1
+theme_type_variation = &"LabelSubInfo"
+text = "SHARE_LAYER_TITLE"
 
 [node name="Percentage" type="Label" parent="RecipientInfo/PanelContainer/RevenueSourceContainer/Titles" unique_id=2021845308]
 layout_mode = 2

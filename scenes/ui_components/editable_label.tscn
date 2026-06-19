@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="1_3c3en"]
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_5v7fe"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="3_8n8tc"]
 
-[node name="EditableLabel" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field")]
+[node name="EditableLabel" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("label_node", "input_field", "highlight_container")]
 theme = ExtResource("1_5v7fe")
 script = ExtResource("1_3c3en")
 label_node = NodePath("Label")
 input_field = NodePath("LineEdit")
+highlight_container = NodePath("HighlightContainer")
 
 [node name="Label" type="Label" parent="." unique_id=1906058850]
 unique_name_in_owner = true
@@ -22,3 +24,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 placeholder_text = "John Doe"
+
+[node name="HighlightContainer" parent="." unique_id=517991368 instance=ExtResource("3_8n8tc")]
+visible = false
+layout_mode = 2

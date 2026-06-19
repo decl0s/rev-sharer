@@ -22,7 +22,7 @@ func repopulate_recipients() -> void:
 		%ScrollContainer.show()
 
 func populate_recipients() -> void:
-	for recipient : RecipientData in Global.recipients:
+	for recipient : RecipientData in Global.recipients.values():
 		var new_recipient : RecipientPanelContainer = RECIPIENT_PANEL.instantiate()
 		new_recipient.recipient = recipient
 		new_recipient.init()

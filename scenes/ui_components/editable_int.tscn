@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://1mt6y4yy7yy3"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_ar2x1"]
+[ext_resource type="Script" uid="uid://dr4cey8i2t0v" path="res://scripts/editable_info.gd" id="2_3jy0d"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="3_ykclh"]
+
+[node name="EditableInt" type="VBoxContainer" unique_id=1900893206 node_paths=PackedStringArray("highlight_container", "label_node", "input_field")]
+size_flags_vertical = 3
+theme = ExtResource("1_ar2x1")
+script = ExtResource("2_3jy0d")
+highlight_container = NodePath("HighlightContainer")
+label_node = NodePath("Label")
+input_field = NodePath("intInput")
+
+[node name="Label" type="Label" parent="." unique_id=1906058850]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "INT"
+vertical_alignment = 1
+
+[node name="intInput" type="SpinBox" parent="." unique_id=1767845988]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+rounded = true
+allow_greater = true
+
+[node name="HighlightContainer" parent="." unique_id=517991368 instance=ExtResource("3_ykclh")]
+visible = false
+layout_mode = 2

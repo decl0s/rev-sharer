@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://wgo2onf20fif" path="res://scenes/ui_components/recipient/highlight_container.gd" id="2_54pc5"]
 
 [node name="HighlightContainer" type="PanelContainer" unique_id=517991368]
+offset_right = 152.0
+offset_bottom = 58.0
 size_flags_horizontal = 2
 theme = ExtResource("1_e84rm")
-theme_type_variation = &"GreenHighlightContainer"
+theme_type_variation = &"PanelHighlightContainer"
 script = ExtResource("2_54pc5")
 text = "Default Text"
 
