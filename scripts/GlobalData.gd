@@ -12,7 +12,7 @@ func _ready() -> void:
 	dev_populate_mock_revenue_sources(10)
 	dev_populate_mock_recipients(10)
 
-var mock_revenue_names : Array[String] = ["Goonipilant","Anthro Heat","Merch","Counter Strike Skins","The One","Bath Water Selling","Casino Winnings"," Pyramid Scheme"]
+var mock_revenue_names : Array[String] = ["Goonipilant","Anthro Heat","Merch","Counter Strike Skins","The One","Bath Water Selling","Casino Winnings","Pyramid Scheme"]
 func dev_populate_mock_revenue_sources(amount : int) -> void: ## Creates mock data for testing.
 	for i : int in amount:
 		var mock_revenue : RevenueSourceData = RevenueSourceData.new()
@@ -51,12 +51,12 @@ func add_rev_share_to_recipient(desired_recipient : RecipientData, desired_rev_s
 	recipients[desired_recipient.id].shares[desired_rev_share.id] = desired_rev_share
 	#print("Added revenue source to ", desired_recipient.name)
 	print(recipients[desired_recipient.id].shares)
-	Sig.add_revenue_to_recipient()
+	Sig.add_rev_share_to_recipient()
 
 func delete_share_from_recipient(desired_recipient : RecipientData, desired_rev_share : RecipientRevShare) -> void:
 	print("Removing Revenue Source from ", desired_recipient.name)
 	Global.recipients[desired_recipient.id].shares.erase(desired_rev_share.id)
-	Sig.delete_revenue_from_recipient()
+	Sig.delete_rev_share_from_recipient()
 
 func delete_recipient(desired_recipient : RecipientData) -> void:
 	print("Erasing Recipient:", desired_recipient.name)

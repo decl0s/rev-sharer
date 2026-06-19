@@ -3,6 +3,9 @@ class_name EditButton
 
 @export var editable_nodes : Array[EditableInfo]
 
+signal started_editing
+signal ended_editing
+
 func _ready() -> void:
 	%EditRecipientButton.pressed.connect(toggle_edit_mode)
 	%ConfirmButton.pressed.connect(on_confirm_pressed)
@@ -16,6 +19,7 @@ func toggle_edit_mode() -> void:
 			node.enable_editing()
 		%EditingButtons.show()
 		%EditRecipientButton.hide()
+		emit_signal("started_editing")
 		return
 	if is_editing == true:
 		disable_edit()
@@ -27,6 +31,7 @@ func disable_edit() -> void:
 	%EditingButtons.hide()
 	%EditRecipientButton.show()
 	is_editing = false
+	emit_signal("ended_editing")
 
 func on_confirm_pressed() -> void:
 	for node : EditableInfo in editable_nodes:

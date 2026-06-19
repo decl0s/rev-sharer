@@ -30,22 +30,26 @@ func set_property(new_value : Variant) -> void:
 	if new_value == null: 
 		push_error("Edited value is null, cannot update resource.") 
 		return
+	
+	if is_input_only == true: # for inputs that create new resources.
+		target_resource.set(target_property,new_value)
+		print(target_property," ",new_value)
+		return
+	
 	if target_resource is RecipientData:
-		if is_input_only == false:
-			Global.recipients[target_resource.id].set(target_property,new_value) #FIXME: NOT UPDATING
-			print("Updated : ", target_property ," to ", str(new_value) ," for Recipient : ", target_resource.name)
-			Sig.edit_recipient()
-		else:
-			target_resource.set(target_property,new_value)
-			print(target_property," ",new_value)
+		Global.recipients[target_resource.id].set(target_property,new_value)
+		print("Updated : ", target_property ," to ", str(new_value) ," for Recipient : ", target_resource.name)
+		Sig.edit_recipient()
+	
 	if target_resource is RevenueSourceData:
-		if is_input_only == false:
-			Global.revenue_sources[target_resource.id].set(target_property,new_value)
-			print("Updated : ", target_property ," to ", str(new_value) ," for Revenue Source : ", target_resource.name)
-			Sig.edit_revenue_source()
-		else:
-			target_resource.target_subclass.set(target_property,new_value)
-			print(target_property," ",new_value)
+		Global.revenue_sources[target_resource.id].set(target_property,new_value)
+		print("Updated : ", target_property ," to ", str(new_value) ," for Revenue Source : ", target_resource.name)
+		Sig.edit_revenue_source()
+	
+	if target_resource is RecipientRevShare:
+		Global.recipients[target_resource.linked_recipient.id].shares[target_resource.id].set(target_property,new_value)
+		Sig.modify_rev_share()
+
 
 func get_value() -> Variant:
 	if target_resource is RecipientData:
@@ -86,7 +90,7 @@ func update_labels_and_inputs() -> void:
 	if input_field is SpinBox and is_input_only == false:
 		input_field.value = get_value()
 		if suffix == "%":
-			input_field.value = get_value() * 0.01
+			input_field.value = get_value() * 100
 	if input_field is OptionButton :
 		
 		input_field.clear()
@@ -113,7 +117,7 @@ func update_labels_and_inputs() -> void:
 		highlight_container.label.text = prefix + str(get_value()) + suffix
 		if input_field is SpinBox and suffix == "%":
 			label_node.text = prefix + str(get_value() * 100) + suffix
-			highlight_container.text = prefix + str(get_value() * 100) + suffix #FIXME: LABELS NOT CORRECTLY SHOWING PERCENTAGE
+			highlight_container.label.text = prefix + str(get_value() * 100) + suffix
 	
 	if is_input_only == true:
 		label_node.hide()

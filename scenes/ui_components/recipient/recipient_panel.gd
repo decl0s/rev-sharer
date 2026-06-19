@@ -14,8 +14,8 @@ func _ready() -> void:
 	%NameLabel.target_resource = recipient
 	%MinimumPayment.target_resource = recipient
 	
-	Sig.revenue_deleted_from_recipient.connect(repopulate_revenues)
-	Sig.revenue_added_to_recipient.connect(repopulate_revenues)
+	Sig.rev_share_deleted_from_recipient.connect(repopulate_revenues)
+	Sig.rev_share_added_to_recipient.connect(repopulate_revenues)
 
 
 func init() -> void: ## Initializes the recipient panel.
@@ -63,4 +63,30 @@ func repopulate_revenues() -> void:
 		revenue_line.recipient_rev_share = rev_share
 		revenue_line.update_labels()
 		%RevenueSourceContainer.add_child(revenue_line)
+		revenue_line.edit_btn.started_editing.connect(_on_edit_started)
+		revenue_line.edit_btn.ended_editing.connect(_on_edit_ended)
 		i += 1
+	
+	if %RevenueSourceContainer.get_child_count() != 0 : # If it has children, hide container.
+		%RevenuesSourcePanelContainer.show()
+	else:
+		%RevenuesSourcePanelContainer.hide()
+
+func _on_edit_started() -> void: # Handles styling on other editable lines.
+	for child : RecipientRevenueLineUI in %RevenueSourceContainer.get_children():
+		if child.is_being_edited == false :
+			child.modulate = Colors.disabled_transparent
+		else:
+			child.modulate = Color("fff")
+			child.show_titles = true
+			child.update_labels()
+
+func _on_edit_ended() -> void: # Shows all the lines back.
+	for child : RecipientRevenueLineUI in %RevenueSourceContainer.get_children():
+		if child.is_being_edited == false :
+			child.modulate = Color("fff")
+			child.show_titles = false
+			child.update_labels()
+		if child == %RevenueSourceContainer.get_child(0): # Show title on first child
+			child.show_titles = true
+			child.update_labels()

@@ -7,8 +7,8 @@ func _ready() -> void:
 	%Confirm.pressed.connect(_on_confirm_revenue_pressed)
 	%Cancel.pressed.connect(_on_cancel_revenue_pressed)
 	
-	Sig.revenue_deleted_from_recipient.connect(_on_revenue_change)
-	Sig.revenue_added_to_recipient.connect(_on_revenue_change)
+	Sig.rev_share_deleted_from_recipient.connect(_on_revenue_change)
+	Sig.rev_share_added_to_recipient.connect(_on_revenue_change)
 
 func _on_revenue_change() -> void:
 	if Global.get_available_shares(recipient).is_empty() == true:
