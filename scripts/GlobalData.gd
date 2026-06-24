@@ -90,7 +90,15 @@ func delete_revenue_source(revenue : RevenueSourceData) -> void:
 	Sig.delete_revenue()
 
 func get_available_shares(desired_recipient : RecipientData) -> Array[RevenueSourceData]:
-	var sources : Array[RevenueSourceData] = revenue_sources.values().duplicate()
+	var sources : Array[RevenueSourceData] = []
+	
+	# Ignore if archived.
+	for source : RevenueSourceData in revenue_sources.values():
+		if source.archived == true:
+				continue
+		sources.append(source)
+	
+	# Ignore if already owned
 	for linked_rev_share : RecipientRevShare in desired_recipient.shares.values() :
 		#print("Already owns ", linked_rev_share.revenue_source)
 		sources.erase(linked_rev_share.revenue_source)
