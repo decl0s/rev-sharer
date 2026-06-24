@@ -12,6 +12,8 @@ enum Schedule {
 @export var payout_schedule : Schedule ## Revenue payout schedule. Either Monthly, Quarterly, Yearly.
 @export var revenue : Dictionary[float,Dictionary] ## Monthly revenue for source.
 
+@export var archived : bool = false
+
 #func Get recipients attached.
 
 #func Get total % allocated.
