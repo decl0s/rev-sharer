@@ -59,9 +59,9 @@ func delete_share_from_recipient(desired_recipient : RecipientData, desired_rev_
 	Sig.delete_rev_share_from_recipient()
 
 func delete_recipient(desired_recipient : RecipientData) -> void:
-	print("Erasing Recipient:", desired_recipient.name)
+	print("Archiving Recipient:", desired_recipient.name)
 	
-	Global.recipients.erase(desired_recipient.id)
+	Global.recipients[desired_recipient.id].archived = true
 	Sig.delete_recipient()
 
 func get_available_shares(desired_recipient : RecipientData) -> Array[RevenueSourceData]:

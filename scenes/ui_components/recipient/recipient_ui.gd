@@ -23,6 +23,8 @@ func repopulate_recipients() -> void:
 
 func populate_recipients() -> void:
 	for recipient : RecipientData in Global.recipients.values():
+		if recipient.archived == true: # Don't instantiate archived recipients.
+			continue
 		var new_recipient : RecipientPanelContainer = RECIPIENT_PANEL.instantiate()
 		new_recipient.recipient = recipient
 		new_recipient.init()
