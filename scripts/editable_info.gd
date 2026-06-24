@@ -1,3 +1,5 @@
+@icon("res://assets/icons/EditableInfo.svg")
+
 extends VBoxContainer
 class_name EditableInfo
 
