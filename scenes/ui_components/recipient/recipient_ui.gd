@@ -14,7 +14,7 @@ func repopulate_recipients() -> void:
 			child.queue_free()
 	populate_recipients()
 	
-	if Global.recipients.is_empty() == true:
+	if Global.get_available_recipients().is_empty() == true:
 		%NoRecipientsLabel.show()
 		%ScrollContainer.hide()
 	else:

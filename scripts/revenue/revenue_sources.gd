@@ -19,7 +19,7 @@ func repopulate_revenues() -> void:
 			child.queue_free()
 	populate_revenues()
 	
-	if Global.revenue_sources.is_empty() == true:
+	if Global.get_available_revenue_sources().is_empty() == true:
 		empty_label.show()
 		scroll_container.hide()
 	else:

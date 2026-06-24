@@ -64,6 +64,17 @@ func delete_recipient(desired_recipient : RecipientData) -> void:
 	Global.recipients[desired_recipient.id].archived = true
 	Sig.delete_recipient()
 
+func get_available_recipients() -> Array[RecipientData]:
+	var recipient_array : Array[RecipientData] = []
+	
+	# Ignore if archived.
+	for recipient : RecipientData in recipients.values():
+		if recipient.archived == true:
+				continue
+		recipient_array.append(recipient)
+	
+	return recipient_array
+
 func get_allocated_percentage(checked_revenue_source : RevenueSourceData) -> float: ## Returns total allocated percentage of this revenue source.
 	# Check for every recipient if they have it as a revenue source.
 	# If so add its percentage to total
@@ -103,4 +114,15 @@ func get_available_shares(desired_recipient : RecipientData) -> Array[RevenueSou
 		#print("Already owns ", linked_rev_share.revenue_source)
 		sources.erase(linked_rev_share.revenue_source)
 	#print("Available Revenue Sources: ", sources)
+	return sources
+
+func get_available_revenue_sources() -> Array[RevenueSourceData]:
+	var sources : Array[RevenueSourceData] = []
+	
+	# Ignore if archived.
+	for source : RevenueSourceData in revenue_sources.values():
+		if source.archived == true:
+				continue
+		sources.append(source)
+	
 	return sources
