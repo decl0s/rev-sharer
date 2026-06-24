@@ -12,6 +12,10 @@ signal recipient_deleted
 func delete_recipient() -> void:
 	emit_signal("recipient_deleted")
 
+signal revenue_deleted
+func delete_revenue() -> void:
+	emit_signal("revenue_deleted")
+
 signal rev_share_deleted_from_recipient
 func delete_rev_share_from_recipient() -> void:
 	emit_signal("rev_share_deleted_from_recipient")

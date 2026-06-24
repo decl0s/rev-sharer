@@ -64,6 +64,31 @@ func delete_recipient(desired_recipient : RecipientData) -> void:
 	Global.recipients[desired_recipient.id].archived = true
 	Sig.delete_recipient()
 
+func get_allocated_percentage(checked_revenue_source : RevenueSourceData) -> float: ## Returns total allocated percentage of this revenue source.
+	# Check for every recipient if they have it as a revenue source.
+	# If so add its percentage to total
+	# Return total
+	
+	var allocated_percentage : float = 0
+	
+	for recipient : RecipientData in recipients.values():
+		if recipient.archived == true: # Skip if archived
+			continue
+		
+		var recipient_shares : Array[RecipientRevShare] = recipient.shares.values()
+		
+		for share : RecipientRevShare in recipient_shares:
+			if share.revenue_source == checked_revenue_source:
+				allocated_percentage += share.percentage
+	
+	return allocated_percentage
+
+func delete_revenue_source(revenue : RevenueSourceData) -> void:
+	print("Archiving Revenue Source:", revenue.name)
+	
+	Global.revenue_sources[revenue.id].archived = true
+	Sig.delete_revenue()
+
 func get_available_shares(desired_recipient : RecipientData) -> Array[RevenueSourceData]:
 	var sources : Array[RevenueSourceData] = revenue_sources.values().duplicate()
 	for linked_rev_share : RecipientRevShare in desired_recipient.shares.values() :

@@ -7,7 +7,9 @@ TAB_RECOUP,Recoup,Recouvrement
 TAB_REVENUE,Revenue,Revenu
 TAB_PAYMENTS,Payments,Paiements
 ---- REVENUE SOURCES ---,,
+REC_SOURCE,Revenue Source,Source de revenu
 NO_REVENUE_SOURCES,No revenue sources,Aucune sources de revenus
+TOTAL_ALLOCATED,Total Allocated,Total alloué
 SHARE_LAYER,Layer %s,Niveau %s
 SHARE_LAYER_DESC,Recipients recieve their share from the layer above them. Example: a layer 2 recipient will recieve their share from what is leftover from layer 1.,Les bénéficiaires reçoivent leur part du niveau qui les précède. Exemple : un bénéficiaire de niveau 2 recevra sa part à partir de ce qui reste du niveau 1.
 ---- RECIPIENTS ----,,
@@ -15,7 +17,6 @@ NO_RECIPIENTS,No recipients,Aucun bénéficiaires
 REC_NAME,Recipient Name,Bénéficiaire 
 MINIMUM_PAYOUT,Minimum Payout Amount,Montant minimum des paiement
 MINIMUM_PAYOUT_DESC,The minimum amount of money this recipient needs to be due before requiring a pay out.,Le montant minimum que ce bénéficiaire doit avoir accumulé avant de pouvoir demander un versement.
-REC_SOURCE,Revenue Source,Source de revenu
 SHARE_LAYER_TITLE,Layer,Niveau
 REC_PERCENTAGE,Percentage Share,Pourcentage partagé
 REC_PERCENTAGE_DESC,Percentage of this revenue source that is shared to this recipient.,Pourcentage de cette source de revenu reversé à ce bénéficiaire.

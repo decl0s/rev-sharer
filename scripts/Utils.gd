@@ -1,5 +1,8 @@
 extends Node
 
+func perc_str(value : float) -> String: ## Returns a string of the percentage from a float. Eg: 0.15 = 15%
+	return str(value * 100)+"%"
+
 func get_schedule_string(schedule : RevenueSourceData.Schedule) -> String:
 	match schedule:
 		RevenueSourceData.Schedule.Monthly:

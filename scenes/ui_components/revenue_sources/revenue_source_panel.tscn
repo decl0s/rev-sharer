@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://3mhhjb0d4dio"]
+
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="1_8yyrd"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_jf383"]
+[ext_resource type="Script" uid="uid://dv1eb54nmkg5f" path="res://scripts/revenue/revenue_source_panel.gd" id="2_83i5j"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="2_jf383"]
+[ext_resource type="PackedScene" uid="uid://i0do5n0ftfrm" path="res://scenes/ui_components/delete_button.tscn" id="5_634av"]
+
+[node name="RevenueSourcePanel" type="PanelContainer" unique_id=896571671]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme = ExtResource("1_jf383")
+script = ExtResource("2_83i5j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1560727097]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1986228136]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=464333206]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=99931650]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "NAME"
+
+[node name="RevenueSourceName" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1900893206 instance=ExtResource("1_8yyrd")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+target_property = "name"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=124456709]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TotalAllocated" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=917956864]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "TOTAL_ALLOCATED"
+
+[node name="AllocatedPercentage" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=517991368 instance=ExtResource("2_jf383")]
+unique_name_in_owner = true
+self_modulate = Color(0.9411765, 0.64705884, 0, 1)
+layout_mode = 2
+color = 2
+text = "ERROR%"
+
+[node name="DeleteButton" parent="VBoxContainer/HBoxContainer" unique_id=150243859 instance=ExtResource("5_634av")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="deletion_requested" from="VBoxContainer/HBoxContainer/DeleteButton" to="." method="_on_deletion_requested"]
