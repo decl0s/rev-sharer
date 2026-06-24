@@ -61,8 +61,12 @@ func repopulate_revenues() -> void:
 			revenue_line.show_titles = false
 		revenue_line.recipient = recipient
 		revenue_line.recipient_rev_share = rev_share
-		revenue_line.update_labels()
 		%RevenueSourceContainer.add_child(revenue_line)
+		
+		if not revenue_line.is_node_ready():
+			await revenue_line.ready
+		
+		revenue_line.update_labels()
 		revenue_line.edit_btn.started_editing.connect(_on_edit_started)
 		revenue_line.edit_btn.ended_editing.connect(_on_edit_ended)
 		i += 1
