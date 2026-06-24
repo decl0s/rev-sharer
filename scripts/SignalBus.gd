@@ -12,10 +12,6 @@ signal recipient_deleted
 func delete_recipient() -> void:
 	emit_signal("recipient_deleted")
 
-signal revenue_deleted
-func delete_revenue() -> void:
-	emit_signal("revenue_deleted")
-
 signal rev_share_deleted_from_recipient
 func delete_rev_share_from_recipient() -> void:
 	emit_signal("rev_share_deleted_from_recipient")
@@ -28,10 +24,14 @@ signal rev_share_modified
 func modify_rev_share() -> void:
 	emit_signal("rev_share_modified")
 
-signal created_revenue_source
+signal revenue_source_created
 func create_revenue_source() -> void:
-	emit_signal("created_revenue_source")
+	emit_signal("revenue_source_created")
 
 signal revenue_source_edited
 func edit_revenue_source() -> void:
 	emit_signal("revenue_source_edited")
+
+signal revenue_source_deleted
+func delete_revenue_source() -> void:
+	emit_signal("revenue_source_deleted")

@@ -9,12 +9,17 @@ func _ready() -> void:
 	
 	Sig.rev_share_deleted_from_recipient.connect(_on_revenue_change)
 	Sig.rev_share_added_to_recipient.connect(_on_revenue_change)
+	Sig.revenue_source_deleted.connect(_on_revenue_change)
+	Sig.revenue_source_edited.connect(_on_revenue_change)
+	Sig.revenue_source_created.connect(_on_revenue_change)
 
 func _on_revenue_change() -> void:
 	if Global.get_available_shares(recipient).is_empty() == true:
 		%AddRevenue.disabled = true
 	else:
 		%AddRevenue.disabled = false
+	
+	toggle_off()
 
 var option_items : Dictionary[int,RevenueSourceData] = {
 	

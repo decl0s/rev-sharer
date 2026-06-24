@@ -87,7 +87,7 @@ func delete_revenue_source(revenue : RevenueSourceData) -> void:
 	print("Archiving Revenue Source:", revenue.name)
 	
 	Global.revenue_sources[revenue.id].archived = true
-	Sig.delete_revenue()
+	Sig.delete_revenue_source()
 
 func get_available_shares(desired_recipient : RecipientData) -> Array[RevenueSourceData]:
 	var sources : Array[RevenueSourceData] = []

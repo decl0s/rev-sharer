@@ -3,8 +3,8 @@ extends Control
 func _ready() -> void:
 	repopulate_revenues()
 	
-	Sig.revenue_deleted.connect(repopulate_revenues)
-	Sig.created_revenue_source.connect(repopulate_revenues)
+	Sig.revenue_source_deleted.connect(repopulate_revenues)
+	Sig.revenue_source_created.connect(repopulate_revenues)
 	Sig.rev_share_modified.connect(repopulate_revenues)
 	Sig.rev_share_added_to_recipient.connect(repopulate_revenues)
 	Sig.rev_share_deleted_from_recipient.connect(repopulate_revenues)
