@@ -22,7 +22,7 @@ func _on_text_changed(str : String) -> void:
 			input.input_field.modulate = "ffffff"
 
 func init() -> void:
-	new_resource = resource_type
+	new_resource = resource_type.duplicate(true)
 	for node : EditableInfo in inputs:
 		node.target_resource = new_resource
 
