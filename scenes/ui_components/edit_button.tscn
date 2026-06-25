@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b8rfpyqakqrue" path="res://assets/icons/check.svg" id="4_3ipb6"]
 [ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="5_mvg6l"]
 
-[node name="HBoxContainer" type="HBoxContainer" unique_id=396085274]
+[node name="EditButton" type="HBoxContainer" unique_id=396085274]
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_vh3yc")

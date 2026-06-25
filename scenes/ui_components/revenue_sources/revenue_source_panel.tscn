@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="2_jf383"]
 [ext_resource type="PackedScene" uid="uid://c06qsnv77b2mt" path="res://scenes/ui_components/editable_option_button.tscn" id="4_ffevx"]
 [ext_resource type="PackedScene" uid="uid://i0do5n0ftfrm" path="res://scenes/ui_components/delete_button.tscn" id="5_634av"]
+[ext_resource type="PackedScene" uid="uid://c2q66ap75cws0" path="res://scenes/ui_components/edit_button.tscn" id="6_vsyg0"]
 
 [node name="RevenueSourcePanel" type="PanelContainer" unique_id=896571671]
 anchors_preset = 10
@@ -64,20 +65,33 @@ text = "TOTAL_ALLOCATED"
 
 [node name="AllocatedPercentage" parent="VBoxContainer/HBoxContainer/Allocation" unique_id=517991368 instance=ExtResource("2_jf383")]
 unique_name_in_owner = true
-self_modulate = Color(0.9411765, 0.64705884, 0, 1)
+self_modulate = Color(0.8392157, 0.023529412, 0.62352943, 1)
 layout_mode = 2
 color = 6
 text = "ERROR%"
+
+[node name="EditButton" parent="VBoxContainer/HBoxContainer" unique_id=396085274 node_paths=PackedStringArray("editable_nodes") instance=ExtResource("6_vsyg0")]
+layout_mode = 2
+editable_nodes = [NodePath("../Name/RevenueSourceName"), NodePath("../../EditableDescription")]
 
 [node name="DeleteButton" parent="VBoxContainer/HBoxContainer" unique_id=150243859 instance=ExtResource("5_634av")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Description" type="Label" parent="VBoxContainer" unique_id=178614354]
+[node name="EditableDescription" parent="VBoxContainer" unique_id=328768981 instance=ExtResource("1_8yyrd")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-theme_type_variation = &"LabelSubInfo"
-text = "This is a short description of the revenue Source."
+target_property = "description"
 
+[node name="Label" parent="VBoxContainer/EditableDescription" index="0" unique_id=1906058850]
+theme_type_variation = &"LabelSubInfo"
+
+[node name="LineEdit" parent="VBoxContainer/EditableDescription" index="1" unique_id=1354312079]
+placeholder_text = "DESCRIPTION"
+
+[connection signal="ended_editing" from="VBoxContainer/HBoxContainer/EditButton" to="." method="_on_edit_button_ended_editing"]
+[connection signal="started_editing" from="VBoxContainer/HBoxContainer/EditButton" to="." method="_on_edit_button_started_editing"]
 [connection signal="deletion_requested" from="VBoxContainer/HBoxContainer/DeleteButton" to="." method="_on_deletion_requested"]
+
+[editable path="VBoxContainer/EditableDescription"]
