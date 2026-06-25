@@ -22,8 +22,8 @@ grow_vertical = 2
 theme = ExtResource("1_ax6mc")
 script = ExtResource("2_j7yob")
 resource_type = SubResource("Resource_ncjjq")
-inputs = [NodePath("PanelContainer/VBoxContainer/EditableLabel"), NodePath("PanelContainer/VBoxContainer/EditableOptionButton")]
-required_inputs = [NodePath("PanelContainer/VBoxContainer/EditableLabel")]
+inputs = [NodePath("PanelContainer/VBoxContainer/EditableName"), NodePath("PanelContainer/VBoxContainer/EditableDescription"), NodePath("PanelContainer/VBoxContainer/EditablePayout")]
+required_inputs = [NodePath("PanelContainer/VBoxContainer/EditableName")]
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=175602276]
 custom_minimum_size = Vector2(400, 0)
@@ -56,15 +56,31 @@ layout_mode = 2
 theme_type_variation = &"LabelSubInfo"
 text = "NAME"
 
-[node name="EditableLabel" parent="PanelContainer/VBoxContainer" unique_id=1900893206 instance=ExtResource("3_bicsu")]
+[node name="EditableName" parent="PanelContainer/VBoxContainer" unique_id=1900893206 instance=ExtResource("3_bicsu")]
 layout_mode = 2
 target_property = "name"
 is_input_only = true
 
-[node name="Label" parent="PanelContainer/VBoxContainer/EditableLabel" index="0" unique_id=1906058850]
+[node name="Label" parent="PanelContainer/VBoxContainer/EditableName" index="0" unique_id=1906058850]
 text = ""
 
-[node name="LineEdit" parent="PanelContainer/VBoxContainer/EditableLabel" index="1" unique_id=1354312079]
+[node name="LineEdit" parent="PanelContainer/VBoxContainer/EditableName" index="1" unique_id=1354312079]
+placeholder_text = ""
+
+[node name="DESCRIPTION" type="Label" parent="PanelContainer/VBoxContainer" unique_id=22115411]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "DESCRIPTION"
+
+[node name="EditableDescription" parent="PanelContainer/VBoxContainer" unique_id=247515872 instance=ExtResource("3_bicsu")]
+layout_mode = 2
+target_property = "description"
+is_input_only = true
+
+[node name="Label" parent="PanelContainer/VBoxContainer/EditableDescription" index="0" unique_id=1906058850]
+text = ""
+
+[node name="LineEdit" parent="PanelContainer/VBoxContainer/EditableDescription" index="1" unique_id=1354312079]
 placeholder_text = ""
 
 [node name="PayoutSchedule" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1829213201]
@@ -72,7 +88,7 @@ layout_mode = 2
 theme_type_variation = &"LabelSubInfo"
 text = "REC_SCHEDULE"
 
-[node name="EditableOptionButton" parent="PanelContainer/VBoxContainer" unique_id=213529847 instance=ExtResource("4_j7yob")]
+[node name="EditablePayout" parent="PanelContainer/VBoxContainer" unique_id=213529847 instance=ExtResource("4_j7yob")]
 layout_mode = 2
 target_property = "payout_schedule"
 target_enum = &"Schedule"
@@ -98,4 +114,5 @@ size_flags_horizontal = 3
 text = "BTN_CANCEL"
 icon = ExtResource("6_kkghb")
 
-[editable path="PanelContainer/VBoxContainer/EditableLabel"]
+[editable path="PanelContainer/VBoxContainer/EditableName"]
+[editable path="PanelContainer/VBoxContainer/EditableDescription"]
