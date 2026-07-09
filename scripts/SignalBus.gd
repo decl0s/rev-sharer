@@ -79,3 +79,36 @@ func delete_transaction() -> void:
 signal transaction_edited
 func edit_transaction() -> void:
 	emit_signal("transaction_edited")
+	
+
+# -----------------------------
+# REVENUES
+# -----------------------------
+
+signal revenue_created
+func create_revenue() -> void:
+	emit_signal("revenue_created")
+
+signal revenue_deleted
+func delete_revenue() -> void:
+	emit_signal("revenue_deleted")
+
+signal revenue_edited
+func edit_revenue() -> void:
+	emit_signal("revenue_edited")
+
+# -----------------------------
+# PAYMENTS
+# -----------------------------
+
+signal payment_created
+func create_payment() -> void:
+	emit_signal("payment_created")
+
+signal payment_deleted
+func delete_payment() -> void:
+	emit_signal("payment_deleted")
+
+signal payment_edited
+func edit_payment() -> void:
+	emit_signal("payment_edited")

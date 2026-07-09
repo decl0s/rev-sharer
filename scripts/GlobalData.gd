@@ -5,6 +5,8 @@ class_name GlobalData
 @export var recipients : Dictionary[int,RecipientData]
 @export var recoups : Dictionary[int,RecoupData]
 @export var transactions : Dictionary[int,TransactionData]
+@export var revenues : Dictionary[int, RevenueData]
+@export var payments : Dictionary[int, PaymentData]
 
 func _ready() -> void:
 	dev_populate_mock_revenue_sources(10)
@@ -60,6 +62,16 @@ func create_data(new_resource : Resource) -> void:
 			new_resource.id = get_next_id(transactions)
 			transactions[new_resource.id] = new_resource
 			Sig.create_transaction()
+			
+		elif new_resource is RevenueData:
+			new_resource.id = get_next_id(revenues)
+			revenues[new_resource.id] = new_resource
+			Sig.create_revenue()
+			
+		elif new_resource is PaymentData:
+			new_resource.id = get_next_id(payments)
+			payments[new_resource.id] = new_resource
+			Sig.create_payment()
 
 # -----------------------------
 # ASSIGNERS
@@ -96,7 +108,14 @@ func delete_data(desired_data : Resource) -> void:
 	elif desired_data is TransactionData:
 		Global.transactions[desired_data.id].archived = true
 		Sig.delete_transaction()
-
+	
+	elif desired_data is RevenueData:
+		Global.revenues[desired_data.id].archived = true
+		Sig.delete_revenue()
+	
+	elif desired_data is PaymentData:
+		Global.payments[desired_data.id].archived = true
+		Sig.delete_payment()
 
 # -----------------------------
 # GETTERS
