@@ -7,6 +7,8 @@ class_name GlobalData
 @export var transactions : Dictionary[int,TransactionData]
 @export var revenues : Dictionary[int, RevenueData]
 @export var payments : Dictionary[int, PaymentData]
+@export var rev_shares : Dictionary[int,RecipientRevShare]
+
 
 func _ready() -> void:
 	dev_populate_mock_revenue_sources(10)
@@ -33,10 +35,16 @@ func dev_populate_mock_recipients(amount : int) -> void: ## Creates mock data fo
 		mock_recipient.payments = {100.0:{01:2025}}
 		recipients[mock_recipient.id] = mock_recipient
 
-func get_next_id(dict : Dictionary) -> int :
-	if dict.keys().is_empty() :
-		return 0
-	return dict.keys().max() + 1
+func get_next_id(dict_or_array : Variant) -> int :
+	if dict_or_array is Dictionary:
+		if dict_or_array.keys().is_empty() :
+			return 0
+		return dict_or_array.keys().max() + 1
+	
+	elif dict_or_array is Array:
+		return dict_or_array.max() + 1
+	
+	return 0
 
 # -----------------------------
 # RESOURCE CREATION
@@ -79,6 +87,7 @@ func create_data(new_resource : Resource) -> void:
 
 func add_rev_share_to_recipient(desired_recipient : RecipientData, desired_rev_share : RecipientRevShare) -> void:
 	recipients[desired_recipient.id].shares[desired_rev_share.id] = desired_rev_share
+	rev_shares[desired_rev_share.id] = desired_rev_share
 	#print("Added revenue source to ", desired_recipient.name)
 	print(recipients[desired_recipient.id].shares)
 	Sig.add_rev_share_to_recipient()
@@ -86,6 +95,7 @@ func add_rev_share_to_recipient(desired_recipient : RecipientData, desired_rev_s
 func delete_share_from_recipient(desired_recipient : RecipientData, desired_rev_share : RecipientRevShare) -> void:
 	print("Removing Revenue Source from ", desired_recipient.name)
 	Global.recipients[desired_recipient.id].shares.erase(desired_rev_share.id)
+	rev_shares.erase(desired_rev_share.id)
 	Sig.delete_rev_share_from_recipient()
 
 # -----------------------------

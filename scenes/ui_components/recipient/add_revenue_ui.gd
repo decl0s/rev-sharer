@@ -54,8 +54,7 @@ func reset_inputs() -> void:
 
 func _on_confirm_revenue_pressed() -> void:
 	var new_share : RecipientRevShare = RecipientRevShare.new()
-	new_share.id = Global.next_rev_share_id
-	Global.next_rev_share_id += 1
+	new_share.id = Global.get_next_id(Global.rev_shares)
 	new_share.linked_recipient = recipient
 	new_share.layer = %LayerInput.value
 	new_share.revenue_source = option_items[%RevenueOption.selected]
