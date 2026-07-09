@@ -4,10 +4,6 @@ class_name GlobalData
 @export var revenue_sources : Dictionary[int,RevenueSourceData]
 @export var recipients : Dictionary[int,RecipientData]
 
-@export var next_rev_source_id : int = 0
-@export var next_recipient_id : int = 0
-@export var next_rev_share_id : int = 0
-
 func _ready() -> void:
 	dev_populate_mock_revenue_sources(10)
 	dev_populate_mock_recipients(10)
@@ -16,8 +12,7 @@ var mock_revenue_names : Array[String] = ["Goonipilant","Anthro Heat","Merch","C
 func dev_populate_mock_revenue_sources(amount : int) -> void: ## Creates mock data for testing.
 	for i : int in amount:
 		var mock_revenue : RevenueSourceData = RevenueSourceData.new()
-		mock_revenue.id = next_rev_source_id
-		next_rev_source_id += 1
+		mock_revenue.id = get_next_id(revenue_sources)
 		mock_revenue.name = mock_revenue_names.pick_random() + str(i)
 		mock_revenue.payout_schedule = [0,1,2].pick_random()
 		mock_revenue.revenue = {100.0:{01:2025}}
@@ -27,23 +22,25 @@ var mock_names : Array[String] = ["Alex","Marl","Ted","Alan","Ana","Julien","Mar
 func dev_populate_mock_recipients(amount : int) -> void: ## Creates mock data for testing.
 	for i : int in amount:
 		var mock_recipient : RecipientData = RecipientData.new()
-		mock_recipient.id = next_recipient_id
-		next_recipient_id += 1
+		mock_recipient.id = get_next_id(recipients)
 		mock_recipient.name = mock_names.pick_random() + str(i)
 		mock_recipient.minimum_payout = randi_range(10,300)
 		#mock_recipient.revenue_sources.append(revenue_sources.pick_random())
 		mock_recipient.payments = {100.0:{01:2025}}
 		recipients[mock_recipient.id] = mock_recipient
 
+func get_next_id(dict : Dictionary) -> int :
+	if dict.keys().is_empty() :
+		return 0
+	return dict.keys().max() + 1
+
 func create_recipient(new_recipient : RecipientData) -> void:
-	new_recipient.id = next_recipient_id
-	next_recipient_id += 1
+	new_recipient.id = get_next_id(recipients)
 	recipients[new_recipient.id] = new_recipient
 	Sig.create_recipient()
 
 func create_revenue_source(new_revenue_source : RevenueSourceData) -> void:
-	new_revenue_source.id = next_rev_source_id
-	next_rev_source_id += 1
+	new_revenue_source.id = get_next_id(revenue_sources)
 	revenue_sources[new_revenue_source.id] = new_revenue_source
 	Sig.create_revenue_source()
 
