@@ -41,23 +41,22 @@ func get_next_id(dict : Dictionary) -> int :
 # -----------------------------
 
 func create_resource(new_resource : Resource) -> void:
-	match new_resource:
-		RecipientData:
+		if new_resource is RecipientData:
 			new_resource.id = get_next_id(recipients)
 			recipients[new_resource.id] = new_resource
 			Sig.create_recipient()
 			
-		RevenueSourceData:
+		elif new_resource is RevenueSourceData:
 			new_resource.id = get_next_id(revenue_sources)
 			revenue_sources[new_resource.id] = new_resource
 			Sig.create_revenue_source()
 			
-		RecoupData:
+		elif new_resource is RecoupData:
 			new_resource.id = get_next_id(recoups)
 			recoups[new_resource.id] = new_resource
 			Sig.create_recoup()
 			
-		TransactionData:
+		elif new_resource is TransactionData:
 			new_resource.id = get_next_id(transactions)
 			transactions[new_resource.id] = new_resource
 			Sig.create_transaction()
@@ -82,19 +81,22 @@ func delete_share_from_recipient(desired_recipient : RecipientData, desired_rev_
 # -----------------------------
 
 func delete_data(desired_data : Resource) -> void:
-	match desired_data:
-		RecipientData:
-			Global.recipients[desired_data.id].archived = true
-			Sig.delete_recipient()
-		RevenueSourceData:
-			Global.revenue_sources[desired_data.id].archived = true
-			Sig.delete_revenue_source()
-		RecoupData:
-			Global.recoups[desired_data.id].archived = true
-			Sig.delete_recoup()
-		TransactionData:
-			Global.transactions[desired_data.id].archived = true
-			Sig.delete_transaction()
+	if desired_data is RecipientData:
+		Global.recipients[desired_data.id].archived = true
+		Sig.delete_recipient()
+		
+	elif desired_data is RevenueSourceData:
+		Global.revenue_sources[desired_data.id].archived = true
+		Sig.delete_revenue_source()
+		
+	elif desired_data is RecoupData:
+		Global.recoups[desired_data.id].archived = true
+		Sig.delete_recoup()
+		
+	elif desired_data is TransactionData:
+		Global.transactions[desired_data.id].archived = true
+		Sig.delete_transaction()
+
 
 # -----------------------------
 # GETTERS

@@ -4,7 +4,7 @@ class_name RevenueSourcePanelContainer
 @export var revenue : RevenueSourceData
 
 func _on_deletion_requested() -> void:
-	Global.delete_revenue_source(revenue)
+	Global.delete_data(revenue)
 
 func init() -> void:
 	%RevenueSourceName.target_resource = revenue

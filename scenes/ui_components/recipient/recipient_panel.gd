@@ -35,7 +35,7 @@ func _on_delete_recipient_pressed() -> void:
 		return
 	if want_to_delete_recipient == true:
 		reset_delete_recipient_state()
-		Global.delete_recipient(recipient)
+		Global.delete_data(recipient)
 
 func _on_delete_recipient_reset_timeout() -> void:
 	reset_delete_recipient_state()

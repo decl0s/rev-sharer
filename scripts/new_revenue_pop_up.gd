@@ -31,10 +31,8 @@ func create_new_resource() -> void:
 		node.update_property()
 	
 	#Create and append data
-	if resource_type is RecipientData:
-		Global.create_recipient(new_resource)
-	if resource_type is RevenueSourceData:
-		Global.create_revenue_source(new_resource)
+	Global.create_resource(new_resource)
+
 
 func all_inputs_filled() -> bool:
 	for input : EditableInfo in required_inputs:
