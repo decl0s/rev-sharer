@@ -31,7 +31,7 @@ func create_new_resource() -> void:
 		node.update_property()
 	
 	#Create and append data
-	Global.create_resource(new_resource)
+	Global.create_data(new_resource)
 
 
 func all_inputs_filled() -> bool:

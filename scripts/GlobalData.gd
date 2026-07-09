@@ -40,7 +40,7 @@ func get_next_id(dict : Dictionary) -> int :
 # RESOURCE CREATION
 # -----------------------------
 
-func create_resource(new_resource : Resource) -> void:
+func create_data(new_resource : Resource) -> void:
 		if new_resource is RecipientData:
 			new_resource.id = get_next_id(recipients)
 			recipients[new_resource.id] = new_resource
