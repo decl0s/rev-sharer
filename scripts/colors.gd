@@ -8,7 +8,7 @@ var orange : String = "#f0a500"
 var blue : String = "#00b4d8"
 var green : String = "#06d6a0"
 var purple : String = "#7806d6"
-var pink : String = "#d6069f"
+var pink : String = "#e85fc4"
 
 var red_tint : String = "#ff8c8c"
 
