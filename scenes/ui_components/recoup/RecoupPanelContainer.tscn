@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bxqlnd7lvcnn1"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_6xnp2"]
+[ext_resource type="Script" uid="uid://crohj2oyvl4it" path="res://scripts/recoup/recoup_panel_container.gd" id="2_no7c4"]
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="3_no7c4"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="5_toyub"]
+
+[node name="RecoupPanelContainer" type="PanelContainer" unique_id=871934348]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_6xnp2")
+script = ExtResource("2_no7c4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=95095774]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=575502381]
+visible = false
+layout_mode = 2
+text = "REC_SOURCE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=886926243]
+layout_mode = 2
+
+[node name="Name Desc" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=942655208]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" parent="VBoxContainer/HBoxContainer/Name Desc" unique_id=1900893206 instance=ExtResource("3_no7c4")]
+unique_name_in_owner = true
+layout_mode = 2
+target_property = "name"
+
+[node name="Description" parent="VBoxContainer/HBoxContainer/Name Desc" unique_id=24276994 instance=ExtResource("3_no7c4")]
+unique_name_in_owner = true
+layout_mode = 2
+target_property = "description"
+
+[node name="Label" parent="VBoxContainer/HBoxContainer/Name Desc/Description" index="0" unique_id=1906058850]
+theme_type_variation = &"LabelSubInfo"
+text = "Description"
+
+[node name="Total" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=300129701]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Total" unique_id=547812264]
+layout_mode = 2
+text = "TOTAL"
+
+[node name="Total" parent="VBoxContainer/HBoxContainer/Total" unique_id=517991368 instance=ExtResource("5_toyub")]
+unique_name_in_owner = true
+layout_mode = 2
+color = 1
+text = "Total"
+
+[node name="Total Recovered" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1200913004]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Total Recovered" unique_id=812540346]
+layout_mode = 2
+text = "TOTAL_RECOUPED"
+
+[node name="TotalRecovered" parent="VBoxContainer/HBoxContainer/Total Recovered" unique_id=2007049996 instance=ExtResource("5_toyub")]
+unique_name_in_owner = true
+layout_mode = 2
+color = 3
+text = "TotalRecovered"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=642106378]
+layout_mode = 2
+
+[node name="Transactions" type="VBoxContainer" parent="VBoxContainer" unique_id=751415164]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Transactions" unique_id=1002169952]
+layout_mode = 2
+text = "TRANSACTIONS"
+
+[node name="TransactionsContainer" type="HBoxContainer" parent="VBoxContainer/Transactions" unique_id=2067305128]
+unique_name_in_owner = true
+layout_mode = 2
+
+[editable path="VBoxContainer/HBoxContainer/Name Desc/Description"]

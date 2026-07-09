@@ -22,6 +22,7 @@ func dev_populate_mock_revenue_sources(amount : int) -> void: ## Creates mock da
 		mock_revenue.name = mock_revenue_names.pick_random() + str(i)
 		mock_revenue.payout_schedule = [0,1,2].pick_random()
 		mock_revenue.revenue = {100.0:{01:2025}}
+		mock_revenue.recoup = RecoupData.new()
 		revenue_sources[mock_revenue.id] = mock_revenue
 
 var mock_names : Array[String] = ["Alex","Marl","Ted","Alan","Ana","Julien","Martin","Nancy"]

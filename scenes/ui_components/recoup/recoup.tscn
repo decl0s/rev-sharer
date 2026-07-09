@@ -1,6 +1,34 @@
 [gd_scene format=3 uid="uid://cn2anlm8ih68u"]
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_g0o1c"]
+[ext_resource type="Script" uid="uid://mxd6k51voufl" path="res://scripts/recoup/recoup_screen.gd" id="2_mvior"]
+[ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="2_nesvr"]
+[ext_resource type="Script" uid="uid://ga80un17gass" path="res://scripts/pop_up_creator.gd" id="3_noge8"]
+[ext_resource type="Script" uid="uid://bxpm573dvjrcs" path="res://scripts/new_revenue_pop_up.gd" id="5_vf1l5"]
+[ext_resource type="Script" uid="uid://coriyyt7e7b1j" path="res://scripts/data/RecipientData.gd" id="6_wb45p"]
+[ext_resource type="Script" uid="uid://b87s7kkilnj2c" path="res://scripts/data/RecoupData.gd" id="7_ks2ir"]
+[ext_resource type="Script" uid="uid://hsomsx6a56u0" path="res://scripts/data/TransactionData.gd" id="8_5tb7g"]
+[ext_resource type="PackedScene" uid="uid://c06qsnv77b2mt" path="res://scenes/ui_components/editable_option_button.tscn" id="9_s2clh"]
+[ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="10_02p5x"]
+
+[sub_resource type="Resource" id="Resource_q4su8"]
+script = ExtResource("7_ks2ir")
+metadata/_custom_type_script = "uid://b87s7kkilnj2c"
+
+[sub_resource type="PackedScene" id="PackedScene_w7n8e"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("CreatePopUp", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "theme", "script", "resource_type", "inputs", "required_inputs", "Control", "PanelContainer", "custom_minimum_size", "anchor_left", "anchor_top", "offset_left", "offset_top", "offset_right", "offset_bottom", "VBoxContainer", "Title", "theme_type_variation", "text", "Label", "Padding", "MarginContainer", "RevenueSource", "EditableOptionButton", "is_input_only", "Padding2", "HBoxContainer", "AddButton", "unique_name_in_owner", "size_flags_horizontal", "icon", "Button", "Cancel"),
+"node_count": 11,
+"node_ids": PackedInt32Array(882423376, 175602276, 1258099619, 189830793, 2007798573, 1471411845, 1900893206, 1938277926, 1957262313, 1908327269, 168178042),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 12, 0, -1, 11, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 9, 6, 1073741834, 7, 1073741835, 7, 0, 0, 0, 13, 13, -1, 13, 14, 8, 1, 9, 2, 10, 15, 11, 16, 11, 3, 11, 4, 11, 17, 12, 18, 12, 19, 13, 20, 13, 5, 3, 6, 3, 0, 1, 0, 21, 21, -1, 1, 1, 3, 0, 2, 0, 25, 22, -1, 3, 1, 3, 23, 14, 24, 15, 0, 2, 0, 27, 26, -1, 1, 1, 3, 0, 2, 0, 25, 28, -1, 3, 1, 3, 23, 16, 24, 17, 0, 2, 0, 2147483647, 29, 18, 2, 1, 3, 30, 19, 0, 2, 0, 27, 31, -1, 1, 1, 3, 0, 2, 0, 32, 32, -1, 1, 1, 3, 0, 8, 0, 37, 33, -1, 5, 34, 19, 1, 3, 35, 0, 24, 20, 36, 21, 0, 8, 0, 37, 38, -1, 5, 34, 19, 1, 3, 35, 0, 24, 22, 36, 23, 0),
+"variants": [3, 15, 1.0, 2, ExtResource("1_g0o1c"), ExtResource("5_vf1l5"), SubResource("Resource_q4su8"), [NodePath("PanelContainer/VBoxContainer/EditableOptionButton")], Vector2(400, 0), 1, 8, 0.5, -18.0, 18.0, &"HeaderSmall", "NEW_RECOUP", &"LabelSubInfo", "REC_SOURCE", ExtResource("9_s2clh"), true, "BTN_ADD", ExtResource("2_nesvr"), "BTN_CANCEL", ExtResource("10_02p5x")],
+"version": 3
+}
 
 [node name="Recoup" type="Control" unique_id=1282158751]
 layout_mode = 3
@@ -10,14 +38,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_g0o1c")
+script = ExtResource("2_mvior")
 
-[node name="Placeholder" type="Label" parent="." unique_id=1218829389]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2122425809]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=6956527]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=391880816]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=295363383]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
 text = "TAB_RECOUP"
+
+[node name="CreateButton" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=375340212]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "NEW_RECOUP"
+icon = ExtResource("2_nesvr")
+script = ExtResource("3_noge8")
+node_to_pop_up = SubResource("PackedScene_w7n8e")
+
+[node name="EmptyLabel" type="Label" parent="VBoxContainer" unique_id=360325]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"HeaderSmall"
+text = "NO_RECOUP"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1982284900]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DataContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1298061481]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

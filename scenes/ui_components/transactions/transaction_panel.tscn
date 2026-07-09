@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://3yeh41ie3hqx"]
+
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="1_3hcod"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_g4uxv"]
+[ext_resource type="PackedScene" uid="uid://c4mg3cj3crej" path="res://scenes/ui_components/editable_money.tscn" id="2_g4uxv"]
+[ext_resource type="Script" uid="uid://q8i3sqwogyjs" path="res://scripts/transactions/transaction_panel.gd" id="2_ij7ip"]
+[ext_resource type="PackedScene" uid="uid://c2q66ap75cws0" path="res://scenes/ui_components/edit_button.tscn" id="3_ij7ip"]
+[ext_resource type="PackedScene" uid="uid://i0do5n0ftfrm" path="res://scenes/ui_components/delete_button.tscn" id="4_gofo0"]
+
+[node name="TransactionPanel" type="PanelContainer" unique_id=1192404080]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme = ExtResource("1_g4uxv")
+script = ExtResource("2_ij7ip")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1597335986]
+layout_mode = 2
+
+[node name="Name" type="VBoxContainer" parent="HBoxContainer" unique_id=1566906099]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" parent="HBoxContainer/Name" unique_id=1900893206 instance=ExtResource("1_3hcod")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+target_property = "name"
+
+[node name="Description" parent="HBoxContainer/Name" unique_id=708343150 instance=ExtResource("1_3hcod")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+target_property = "description"
+
+[node name="Label" parent="HBoxContainer/Name/Description" index="0" unique_id=1906058850]
+theme_type_variation = &"LabelSubInfo"
+
+[node name="Amount" type="VBoxContainer" parent="HBoxContainer" unique_id=1484778944]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EditableMoney" parent="HBoxContainer/Amount" unique_id=969034675 instance=ExtResource("2_g4uxv")]
+unique_name_in_owner = true
+layout_mode = 2
+target_property = "amount"
+use_highlight_panel = true
+highlight_color = 1
+
+[node name="Date" type="VBoxContainer" parent="HBoxContainer" unique_id=311606293]
+layout_mode = 2
+
+[node name="Date" type="Label" parent="HBoxContainer/Date" unique_id=1115607458]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "2002-40-23"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=1973578599]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EditButton" parent="HBoxContainer" unique_id=396085274 node_paths=PackedStringArray("editable_nodes") instance=ExtResource("3_ij7ip")]
+layout_mode = 2
+editable_nodes = [NodePath("../Amount/EditableMoney"), NodePath("../Name/Description"), NodePath("../Name/Name")]
+
+[node name="DeleteButton" parent="HBoxContainer" unique_id=150243859 instance=ExtResource("4_gofo0")]
+layout_mode = 2
+
+[editable path="HBoxContainer/Name/Description"]
