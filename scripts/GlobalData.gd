@@ -3,6 +3,8 @@ class_name GlobalData
 
 @export var revenue_sources : Dictionary[int,RevenueSourceData]
 @export var recipients : Dictionary[int,RecipientData]
+@export var recoups : Dictionary[int,RecoupData]
+@export var transactions : Dictionary[int,TransactionData]
 
 func _ready() -> void:
 	dev_populate_mock_revenue_sources(10)
@@ -34,15 +36,35 @@ func get_next_id(dict : Dictionary) -> int :
 		return 0
 	return dict.keys().max() + 1
 
-func create_recipient(new_recipient : RecipientData) -> void:
-	new_recipient.id = get_next_id(recipients)
-	recipients[new_recipient.id] = new_recipient
-	Sig.create_recipient()
+# -----------------------------
+# RESOURCE CREATION
+# -----------------------------
 
-func create_revenue_source(new_revenue_source : RevenueSourceData) -> void:
-	new_revenue_source.id = get_next_id(revenue_sources)
-	revenue_sources[new_revenue_source.id] = new_revenue_source
-	Sig.create_revenue_source()
+func create_resource(new_resource : Resource) -> void:
+	match new_resource:
+		RecipientData:
+			new_resource.id = get_next_id(recipients)
+			recipients[new_resource.id] = new_resource
+			Sig.create_recipient()
+			
+		RevenueSourceData:
+			new_resource.id = get_next_id(revenue_sources)
+			revenue_sources[new_resource.id] = new_resource
+			Sig.create_revenue_source()
+			
+		RecoupData:
+			new_resource.id = get_next_id(recoups)
+			recoups[new_resource.id] = new_resource
+			Sig.create_recoup()
+			
+		TransactionData:
+			new_resource.id = get_next_id(transactions)
+			transactions[new_resource.id] = new_resource
+			Sig.create_transaction()
+
+# -----------------------------
+# ASSIGNERS
+# -----------------------------
 
 func add_rev_share_to_recipient(desired_recipient : RecipientData, desired_rev_share : RecipientRevShare) -> void:
 	recipients[desired_recipient.id].shares[desired_rev_share.id] = desired_rev_share
@@ -55,11 +77,28 @@ func delete_share_from_recipient(desired_recipient : RecipientData, desired_rev_
 	Global.recipients[desired_recipient.id].shares.erase(desired_rev_share.id)
 	Sig.delete_rev_share_from_recipient()
 
-func delete_recipient(desired_recipient : RecipientData) -> void:
-	print("Archiving Recipient:", desired_recipient.name)
-	
-	Global.recipients[desired_recipient.id].archived = true
-	Sig.delete_recipient()
+# -----------------------------
+# DELETERS
+# -----------------------------
+
+func delete_data(desired_data : Resource) -> void:
+	match desired_data:
+		RecipientData:
+			Global.recipients[desired_data.id].archived = true
+			Sig.delete_recipient()
+		RevenueSourceData:
+			Global.revenue_sources[desired_data.id].archived = true
+			Sig.delete_revenue_source()
+		RecoupData:
+			Global.recoups[desired_data.id].archived = true
+			Sig.delete_recoup()
+		TransactionData:
+			Global.transactions[desired_data.id].archived = true
+			Sig.delete_transaction()
+
+# -----------------------------
+# GETTERS
+# -----------------------------
 
 func get_available_recipients() -> Array[RecipientData]:
 	var recipient_array : Array[RecipientData] = []
@@ -90,12 +129,6 @@ func get_allocated_percentage(checked_revenue_source : RevenueSourceData) -> flo
 				allocated_percentage += share.percentage
 	
 	return allocated_percentage
-
-func delete_revenue_source(revenue : RevenueSourceData) -> void:
-	print("Archiving Revenue Source:", revenue.name)
-	
-	Global.revenue_sources[revenue.id].archived = true
-	Sig.delete_revenue_source()
 
 func get_available_shares(desired_recipient : RecipientData) -> Array[RevenueSourceData]:
 	var sources : Array[RevenueSourceData] = []

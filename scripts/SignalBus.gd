@@ -1,5 +1,9 @@
 extends Node
 
+# -----------------------------
+# RECIPIENTS
+# -----------------------------
+
 signal recipient_created
 func create_recipient() -> void:
 	emit_signal("recipient_created")
@@ -11,6 +15,10 @@ func edit_recipient() -> void:
 signal recipient_deleted
 func delete_recipient() -> void:
 	emit_signal("recipient_deleted")
+
+# -----------------------------
+# REV SHARES
+# -----------------------------
 
 signal rev_share_deleted_from_recipient
 func delete_rev_share_from_recipient() -> void:
@@ -24,6 +32,10 @@ signal rev_share_modified
 func modify_rev_share() -> void:
 	emit_signal("rev_share_modified")
 
+# -----------------------------
+# REVENUE SOURCES
+# -----------------------------
+
 signal revenue_source_created
 func create_revenue_source() -> void:
 	emit_signal("revenue_source_created")
@@ -35,3 +47,35 @@ func edit_revenue_source() -> void:
 signal revenue_source_deleted
 func delete_revenue_source() -> void:
 	emit_signal("revenue_source_deleted")
+
+# -----------------------------
+# RECOUP
+# -----------------------------
+
+signal recoup_created
+func create_recoup() -> void:
+	emit_signal("recoup_created")
+
+signal recoup_deleted
+func delete_recoup() -> void:
+	emit_signal("recoup_deleted")
+
+signal recoup_edited
+func edit_recoup() -> void:
+	emit_signal("recoup_edited")
+
+# -----------------------------
+# TRANSACTIONS
+# -----------------------------
+
+signal transaction_created
+func create_transaction() -> void:
+	emit_signal("transaction_created")
+
+signal transaction_deleted
+func delete_transaction() -> void:
+	emit_signal("transaction_deleted")
+
+signal transaction_edited
+func edit_transaction() -> void:
+	emit_signal("transaction_edited")
