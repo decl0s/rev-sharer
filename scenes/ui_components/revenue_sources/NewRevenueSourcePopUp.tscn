@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_ax6mc"]
 [ext_resource type="Script" uid="uid://bxpm573dvjrcs" path="res://scripts/new_revenue_pop_up.gd" id="2_j7yob"]
-[ext_resource type="Script" uid="uid://644sf0qwgfhn" path="res://scripts/RevenueSourceData.gd" id="3_5avhb"]
+[ext_resource type="Script" uid="uid://644sf0qwgfhn" path="res://scripts/data/RevenueSourceData.gd" id="3_5avhb"]
 [ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="3_bicsu"]
 [ext_resource type="PackedScene" uid="uid://c06qsnv77b2mt" path="res://scenes/ui_components/editable_option_button.tscn" id="4_j7yob"]
 [ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="5_bicsu"]
