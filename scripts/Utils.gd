@@ -14,8 +14,9 @@ func get_schedule_string(schedule : RevenueSourceData.Schedule) -> String:
 		_:
 			return "Error"
 
-func create_pop_up(pop_up_to_instantiate : Resource) -> void:
+func create_pop_up(pop_up_to_instantiate : Resource, parent : Resource) -> void:
 	var new_node : Node = pop_up_to_instantiate.instantiate()
+	new_node.parent_resource = parent
 	get_node("/root/Main/CanvasLayer/PopUpContainer").add_child(new_node)
 	get_node("/root/Main/CanvasLayer/PopUpContainer").show()
 

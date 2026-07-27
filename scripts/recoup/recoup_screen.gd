@@ -11,6 +11,9 @@ func _ready() -> void:
 	Sig.recoup_created.connect(repopulate_recoups)
 	Sig.recoup_edited.connect(repopulate_recoups)
 	Sig.recoup_deleted.connect(repopulate_recoups)
+	Sig.transaction_created.connect(repopulate_recoups)
+	Sig.transaction_edited.connect(repopulate_recoups)
+	Sig.transaction_deleted.connect(repopulate_recoups)
 
 @onready var empty_label: Label = %EmptyLabel
 @onready var scroll_container: ScrollContainer = %ScrollContainer

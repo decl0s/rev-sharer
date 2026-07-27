@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://4sykd6q3jydt"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_hxpsu"]
+[ext_resource type="Script" uid="uid://bxpm573dvjrcs" path="res://scripts/new_resource_pop_up.gd" id="2_f1o8l"]
+[ext_resource type="Script" uid="uid://hsomsx6a56u0" path="res://scripts/data/TransactionData.gd" id="3_nk7vh"]
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="4_k1rgw"]
+[ext_resource type="PackedScene" uid="uid://citx6q6esxrk" path="res://scenes/ui_components/editable_month.tscn" id="5_tvlxy"]
+[ext_resource type="PackedScene" uid="uid://c4mg3cj3crej" path="res://scenes/ui_components/editable_money.tscn" id="5_y3ttl"]
+[ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="6_akut4"]
+[ext_resource type="PackedScene" uid="uid://br74b8suhhx26" path="res://scenes/ui_components/editable_year.tscn" id="6_f1o8l"]
+[ext_resource type="Texture2D" uid="uid://cd0yad1x5vyf3" path="res://assets/icons/close.svg" id="7_4pr4g"]
+[ext_resource type="PackedScene" uid="uid://cqa0d2c6a7pqy" path="res://scenes/ui_components/editable_day.tscn" id="7_f1o8l"]
+
+[sub_resource type="Resource" id="Resource_lasms"]
+script = ExtResource("3_nk7vh")
+metadata/_custom_type_script = "uid://hsomsx6a56u0"
+
+[node name="CreatePopUp" type="Control" unique_id=882423376 node_paths=PackedStringArray("inputs", "required_inputs")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hxpsu")
+script = ExtResource("2_f1o8l")
+resource_type = SubResource("Resource_lasms")
+inputs = [NodePath("PanelContainer/VBoxContainer/EditableName"), NodePath("PanelContainer/VBoxContainer/EditableDescription"), NodePath("PanelContainer/VBoxContainer/EditableMoney"), NodePath("PanelContainer/VBoxContainer/HBoxContainer2/EditableDay"), NodePath("PanelContainer/VBoxContainer/HBoxContainer2/EditableMonth"), NodePath("PanelContainer/VBoxContainer/HBoxContainer2/EditableYear")]
+required_inputs = [NodePath("PanelContainer/VBoxContainer/EditableName"), NodePath("PanelContainer/VBoxContainer/EditableMoney"), NodePath("PanelContainer/VBoxContainer/HBoxContainer2/EditableDay"), NodePath("PanelContainer/VBoxContainer/HBoxContainer2/EditableMonth"), NodePath("PanelContainer/VBoxContainer/HBoxContainer2/EditableYear")]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=175602276]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1258099619]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer" unique_id=189830793]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "ADD_TRANSACTION"
+
+[node name="Padding" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=2007798573]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1471411845]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "NAME"
+
+[node name="EditableName" parent="PanelContainer/VBoxContainer" unique_id=1900893206 instance=ExtResource("4_k1rgw")]
+layout_mode = 2
+target_property = "name"
+is_input_only = true
+
+[node name="Label" parent="PanelContainer/VBoxContainer/EditableName" index="0" unique_id=1906058850]
+text = ""
+
+[node name="LineEdit" parent="PanelContainer/VBoxContainer/EditableName" index="1" unique_id=1354312079]
+placeholder_text = ""
+
+[node name="DESCRIPTION" type="Label" parent="PanelContainer/VBoxContainer" unique_id=22115411]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "DESCRIPTION"
+
+[node name="EditableDescription" parent="PanelContainer/VBoxContainer" unique_id=247515872 instance=ExtResource("4_k1rgw")]
+layout_mode = 2
+target_property = "description"
+is_input_only = true
+
+[node name="Label" parent="PanelContainer/VBoxContainer/EditableDescription" index="0" unique_id=1906058850]
+text = ""
+
+[node name="LineEdit" parent="PanelContainer/VBoxContainer/EditableDescription" index="1" unique_id=1354312079]
+placeholder_text = ""
+
+[node name="Amount" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1829213201]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "AMOUNT"
+
+[node name="EditableMoney" parent="PanelContainer/VBoxContainer" unique_id=1976431003 instance=ExtResource("5_y3ttl")]
+layout_mode = 2
+target_property = "amount"
+is_input_only = true
+
+[node name="Year" type="Label" parent="PanelContainer/VBoxContainer" unique_id=635942411]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "DATE"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=390739417]
+layout_mode = 2
+
+[node name="EditableDay" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=973647745 instance=ExtResource("7_f1o8l")]
+layout_mode = 2
+size_flags_horizontal = 3
+target_property = "day"
+is_input_only = true
+use_current_date = true
+
+[node name="EditableMonth" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1198101093 instance=ExtResource("5_tvlxy")]
+layout_mode = 2
+size_flags_horizontal = 3
+target_property = "month"
+is_input_only = true
+use_current_date = true
+
+[node name="EditableYear" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1016827397 instance=ExtResource("6_f1o8l")]
+layout_mode = 2
+size_flags_horizontal = 3
+target_property = "year"
+is_input_only = true
+use_current_date = true
+
+[node name="Padding2" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=1938277926]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1957262313]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1908327269]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BTN_ADD"
+icon = ExtResource("6_akut4")
+
+[node name="Cancel" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=168178042]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BTN_CANCEL"
+icon = ExtResource("7_4pr4g")
+
+[editable path="PanelContainer/VBoxContainer/EditableName"]
+[editable path="PanelContainer/VBoxContainer/EditableDescription"]

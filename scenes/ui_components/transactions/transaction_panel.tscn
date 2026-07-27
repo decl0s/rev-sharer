@@ -12,6 +12,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 50.0
 grow_horizontal = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_g4uxv")
 script = ExtResource("2_ij7ip")
 
@@ -68,5 +69,7 @@ editable_nodes = [NodePath("../Amount/EditableMoney"), NodePath("../Name/Descrip
 
 [node name="DeleteButton" parent="HBoxContainer" unique_id=150243859 instance=ExtResource("4_gofo0")]
 layout_mode = 2
+
+[connection signal="deletion_requested" from="HBoxContainer/DeleteButton" to="." method="_on_deletion_requested"]
 
 [editable path="HBoxContainer/Name/Description"]

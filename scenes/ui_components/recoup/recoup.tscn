@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://mxd6k51voufl" path="res://scripts/recoup/recoup_screen.gd" id="2_mvior"]
 [ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="2_nesvr"]
 [ext_resource type="Script" uid="uid://ga80un17gass" path="res://scripts/pop_up_creator.gd" id="3_noge8"]
-[ext_resource type="Script" uid="uid://bxpm573dvjrcs" path="res://scripts/new_revenue_pop_up.gd" id="5_vf1l5"]
+[ext_resource type="Script" uid="uid://bxpm573dvjrcs" path="res://scripts/new_resource_pop_up.gd" id="5_vf1l5"]
 [ext_resource type="Script" uid="uid://coriyyt7e7b1j" path="res://scripts/data/RecipientData.gd" id="6_wb45p"]
 [ext_resource type="Script" uid="uid://b87s7kkilnj2c" path="res://scripts/data/RecoupData.gd" id="7_ks2ir"]
 [ext_resource type="Script" uid="uid://hsomsx6a56u0" path="res://scripts/data/TransactionData.gd" id="8_5tb7g"]

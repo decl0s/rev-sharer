@@ -28,6 +28,11 @@ REC_RECOUP_AMT,Recoup,Recouvrables
 RECOUP_DESC,This recoupable amount changes the revenue share percentage until the recoupable amount of money is fully reimbursed.,Ce montant recouvrable modifie le pourcentage de partage des revenus jusqu'à ce que la somme due soit intégralement remboursée.
 RECOUP_AMOUNT_DESC,"To add or edit recoup amounts, change expenses in the recoup tab.","Pour ajouter ou modifier les montants recouvrables, modifiez les dépenses dans l'onglet « Recouvrement »"
 REC_RECOUP_PERCENTAGE,Recoup Rev Share,Pourcentage pendant remboursement
+ -- RECOUP --,,
+NO_RECOUP,No recoupables,Aucuns recouvrables
+AMOUNT,Amount,Montant
+TOTAL_RECOUPED,Total Recovered,Total recouvert
+TOTAL,Total,Total
  -- BUTTONS --,,
 ARE_YOU_SURE,Are you sure?,Êtes-vous sûr?
 BTN_CANCEL,Cancel,Annuler
@@ -39,6 +44,8 @@ BTN_LOAD_FILE,Load file,Charger un fichier
 NEW_REC,Add Recipient,Ajouter un bénéficiaire
 NEW_REVENUE_SOURCE,Add Revenue Source,Ajouter une source de revenu
 NEW_REVENUE,Add Revenue,Ajouter du revenu
+ADD_TRANSACTION,Add Transaction,Ajouter une transaction
+NEW_RECOUP,Add Recoup,Ajouter un recouvrement
 BTN_EDIT,Edit,Modifier
 BTN_ADD,Add,Ajouter
 ---- REVENUE ----,,
@@ -48,3 +55,5 @@ REV_MONTHLY,Monthly,Mensuel
 ---- GENERIC ----,,
 NAME,Name,Nom
 DESCRIPTION,Description,Description
+DATE,Date,Date
+TRANSACTIONS,Transactions,Transactions

@@ -1,6 +1,7 @@
 extends Control
-class_name CreationPopUp
+class_name NewTransactionPopUp
 
+@export var parent_resource : Resource
 @export var resource_type : Resource
 @export var inputs : Array[EditableInfo]
 @export var required_inputs : Array[EditableInfo]
@@ -31,8 +32,10 @@ func create_new_resource() -> void:
 		node.update_property()
 	
 	#Create and append data
-	Global.create_data(new_resource)
-
+	var new_id : int = Global.create_data(new_resource)
+	if parent_resource is RecoupData and new_resource is TransactionData:
+		parent_resource.transactions.append(Global.transactions[new_id])
+		Sig.create_transaction()
 
 func all_inputs_filled() -> bool:
 	for input : EditableInfo in required_inputs:

@@ -3,7 +3,10 @@
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_6xnp2"]
 [ext_resource type="Script" uid="uid://crohj2oyvl4it" path="res://scripts/recoup/recoup_panel_container.gd" id="2_no7c4"]
 [ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="3_no7c4"]
+[ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="5_ejbvw"]
 [ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="5_toyub"]
+[ext_resource type="Script" uid="uid://ga80un17gass" path="res://scripts/pop_up_creator.gd" id="6_nf04n"]
+[ext_resource type="PackedScene" uid="uid://4sykd6q3jydt" path="res://scenes/ui_components/transactions/NewTransactionPopUp.tscn" id="7_dc64s"]
 
 [node name="RecoupPanelContainer" type="PanelContainer" unique_id=871934348]
 anchors_preset = 10
@@ -32,6 +35,7 @@ size_flags_horizontal = 3
 [node name="Name" parent="VBoxContainer/HBoxContainer/Name Desc" unique_id=1900893206 instance=ExtResource("3_no7c4")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 target_property = "name"
 
 [node name="Description" parent="VBoxContainer/HBoxContainer/Name Desc" unique_id=24276994 instance=ExtResource("3_no7c4")]
@@ -53,6 +57,7 @@ text = "TOTAL"
 
 [node name="Total" parent="VBoxContainer/HBoxContainer/Total" unique_id=517991368 instance=ExtResource("5_toyub")]
 unique_name_in_owner = true
+self_modulate = Color(0.9137255, 0.27058825, 0.3764706, 1)
 layout_mode = 2
 color = 1
 text = "Total"
@@ -67,6 +72,7 @@ text = "TOTAL_RECOUPED"
 
 [node name="TotalRecovered" parent="VBoxContainer/HBoxContainer/Total Recovered" unique_id=2007049996 instance=ExtResource("5_toyub")]
 unique_name_in_owner = true
+self_modulate = Color(0.023529412, 0.8392157, 0.627451, 1)
 layout_mode = 2
 color = 3
 text = "TotalRecovered"
@@ -81,8 +87,16 @@ layout_mode = 2
 layout_mode = 2
 text = "TRANSACTIONS"
 
-[node name="TransactionsContainer" type="HBoxContainer" parent="VBoxContainer/Transactions" unique_id=2067305128]
+[node name="TransactionsContainer" type="VBoxContainer" parent="VBoxContainer/Transactions" unique_id=1076316418]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="AddRecoupButton" type="Button" parent="VBoxContainer/Transactions" unique_id=1091839992]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ADD_TRANSACTION"
+icon = ExtResource("5_ejbvw")
+script = ExtResource("6_nf04n")
+node_to_pop_up = ExtResource("7_dc64s")
 
 [editable path="VBoxContainer/HBoxContainer/Name Desc/Description"]

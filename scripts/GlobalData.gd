@@ -51,36 +51,43 @@ func get_next_id(dict_or_array : Variant) -> int :
 # RESOURCE CREATION
 # -----------------------------
 
-func create_data(new_resource : Resource) -> void:
-		if new_resource is RecipientData:
-			new_resource.id = get_next_id(recipients)
-			recipients[new_resource.id] = new_resource
-			Sig.create_recipient()
-			
-		elif new_resource is RevenueSourceData:
-			new_resource.id = get_next_id(revenue_sources)
-			revenue_sources[new_resource.id] = new_resource
-			Sig.create_revenue_source()
-			
-		elif new_resource is RecoupData:
-			new_resource.id = get_next_id(recoups)
-			recoups[new_resource.id] = new_resource
-			Sig.create_recoup()
-			
-		elif new_resource is TransactionData:
-			new_resource.id = get_next_id(transactions)
-			transactions[new_resource.id] = new_resource
-			Sig.create_transaction()
-			
-		elif new_resource is RevenueData:
-			new_resource.id = get_next_id(revenues)
-			revenues[new_resource.id] = new_resource
-			Sig.create_revenue()
-			
-		elif new_resource is PaymentData:
-			new_resource.id = get_next_id(payments)
-			payments[new_resource.id] = new_resource
-			Sig.create_payment()
+func create_data(new_resource : Resource) -> int:
+	if new_resource is RecipientData:
+		new_resource.id = get_next_id(recipients)
+		recipients[new_resource.id] = new_resource
+		Sig.create_recipient()
+		return new_resource.id
+		
+	elif new_resource is RevenueSourceData:
+		new_resource.id = get_next_id(revenue_sources)
+		revenue_sources[new_resource.id] = new_resource
+		Sig.create_revenue_source()
+		return new_resource.id
+		
+	elif new_resource is RecoupData:
+		new_resource.id = get_next_id(recoups)
+		recoups[new_resource.id] = new_resource
+		Sig.create_recoup()
+		return new_resource.id
+		
+	elif new_resource is TransactionData:
+		new_resource.id = get_next_id(transactions)
+		transactions[new_resource.id] = new_resource
+		Sig.create_transaction()
+		return new_resource.id
+		
+	elif new_resource is RevenueData:
+		new_resource.id = get_next_id(revenues)
+		revenues[new_resource.id] = new_resource
+		Sig.create_revenue()
+		return new_resource.id
+		
+	elif new_resource is PaymentData:
+		new_resource.id = get_next_id(payments)
+		payments[new_resource.id] = new_resource
+		Sig.create_payment()
+		return new_resource.id
+	return -999
 
 # -----------------------------
 # ASSIGNERS
@@ -161,6 +168,13 @@ func get_allocated_percentage(checked_revenue_source : RevenueSourceData) -> flo
 				allocated_percentage += share.percentage
 	
 	return allocated_percentage
+
+func get_total_recoup_spend(rev_source : RevenueSourceData) -> float:
+	var total : float
+	for transaction : TransactionData in rev_source.recoup.transactions:
+		if transaction.archived != true:
+			total += transaction.amount
+	return total
 
 func get_available_shares(desired_recipient : RecipientData) -> Array[RevenueSourceData]:
 	var sources : Array[RevenueSourceData] = []

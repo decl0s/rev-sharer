@@ -65,7 +65,7 @@ text = "TOTAL_ALLOCATED"
 
 [node name="AllocatedPercentage" parent="VBoxContainer/HBoxContainer/Allocation" unique_id=517991368 instance=ExtResource("2_jf383")]
 unique_name_in_owner = true
-self_modulate = Color(0.8392157, 0.023529412, 0.62352943, 1)
+self_modulate = Color(0.9098039, 0.37254903, 0.76862746, 1)
 layout_mode = 2
 color = 6
 text = "ERROR%"

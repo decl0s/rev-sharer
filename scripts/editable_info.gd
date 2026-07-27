@@ -14,6 +14,8 @@ class_name EditableInfo
 @export var prefix : String ## Adds a prefix to the label.
 @export var suffix : String ## Adds a suffix to the label.
 
+@export var use_current_date : bool ## if set to true, uses current day, month, year.
+
 @export_group("Highlight Panels")
 @export var use_highlight_panel : bool 
 @export var highlight_color : HighlightContainer.ColorStyle
@@ -26,6 +28,8 @@ class_name EditableInfo
 var target_subclass : Resource
 
 func _ready() -> void:
+	while target_resource == null:
+		await get_tree().process_frame
 	call_deferred("update_labels_and_inputs")
 
 func set_property(new_value : Variant) -> void:
@@ -66,6 +70,10 @@ func get_value() -> Variant:
 		var rev_share : RecipientRevShare = Global.recipients[target_resource.linked_recipient.id].shares[target_resource.id]
 		return rev_share.get(target_property)
 	
+	if target_resource is TransactionData:
+		var transaction : TransactionData = Global.transactions[target_resource.id]
+		return transaction.get(target_property)
+	
 	push_error("Couldn't match target resource to implemented data source.")
 	return null
 
@@ -93,6 +101,15 @@ func update_labels_and_inputs() -> void:
 		input_field.value = get_value()
 		if suffix == "%":
 			input_field.value = get_value() * 100
+	
+	if input_field is SpinBox and use_current_date == true:
+		if input_field.max_value == 31:
+			input_field.value = Time.get_date_dict_from_system().day
+		elif input_field.max_value == 12:
+			input_field.value = Time.get_date_dict_from_system().month
+		elif input_field.max_value == 9999.0:
+			input_field.value = Time.get_date_dict_from_system().year
+	
 	if input_field is OptionButton :
 		
 		input_field.clear()
