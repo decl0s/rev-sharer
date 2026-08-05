@@ -33,6 +33,9 @@ NO_RECOUP,No recoupables,Aucuns recouvrables
 AMOUNT,Amount,Montant
 TOTAL_RECOUPED,Total Recovered,Total recouvert
 TOTAL,Total,Total
+-- REVENUE --,,
+REVENUES,Revenues,Revenus
+NO_REVENUE,No revenue,Aucun revenu
  -- BUTTONS --,,
 ARE_YOU_SURE,Are you sure?,Êtes-vous sûr?
 BTN_CANCEL,Cancel,Annuler

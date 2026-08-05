@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://ipl7n0r4375t"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_3gqtg"]
+[ext_resource type="Script" uid="uid://cmutax3p844lv" path="res://scripts/revenue/revenue_panel_container.gd" id="2_e0bk0"]
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="3_2dngq"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="4_1pi43"]
+[ext_resource type="Texture2D" uid="uid://burlaprrliwpw" path="res://assets/icons/plus.svg" id="5_o6c3g"]
+[ext_resource type="Script" uid="uid://ga80un17gass" path="res://scripts/pop_up_creator.gd" id="6_ar1nl"]
+[ext_resource type="PackedScene" uid="uid://4sykd6q3jydt" path="res://scenes/ui_components/transactions/NewTransactionPopUp.tscn" id="7_qvv0p"]
+
+[node name="RevenuePanelContainer" type="PanelContainer" unique_id=871934348]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_3gqtg")
+script = ExtResource("2_e0bk0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=95095774]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=575502381]
+visible = false
+layout_mode = 2
+text = "REC_SOURCE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=886926243]
+layout_mode = 2
+
+[node name="Name Desc" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=942655208]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" parent="VBoxContainer/HBoxContainer/Name Desc" unique_id=1900893206 instance=ExtResource("3_2dngq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+target_property = "name"
+
+[node name="Description" parent="VBoxContainer/HBoxContainer/Name Desc" unique_id=24276994 instance=ExtResource("3_2dngq")]
+unique_name_in_owner = true
+layout_mode = 2
+target_property = "description"
+
+[node name="Label" parent="VBoxContainer/HBoxContainer/Name Desc/Description" index="0" unique_id=1906058850]
+theme_type_variation = &"LabelSubInfo"
+text = "Description"
+
+[node name="Total" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=300129701]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Total" unique_id=547812264]
+layout_mode = 2
+text = "TOTAL"
+horizontal_alignment = 2
+
+[node name="Total" parent="VBoxContainer/HBoxContainer/Total" unique_id=517991368 instance=ExtResource("4_1pi43")]
+unique_name_in_owner = true
+self_modulate = Color(0.9137255, 0.27058825, 0.3764706, 1)
+layout_mode = 2
+size_flags_horizontal = 10
+color = 1
+text = "Total"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=642106378]
+layout_mode = 2
+
+[node name="Transactions" type="VBoxContainer" parent="VBoxContainer" unique_id=751415164]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Transactions" unique_id=1002169952]
+layout_mode = 2
+text = "REVENUES"
+
+[node name="TransactionsContainer" type="VBoxContainer" parent="VBoxContainer/Transactions" unique_id=1076316418]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AddRevenueButton" type="Button" parent="VBoxContainer/Transactions" unique_id=1091839992]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NEW_REVENUE"
+icon = ExtResource("5_o6c3g")
+script = ExtResource("6_ar1nl")
+node_to_pop_up = ExtResource("7_qvv0p")
+
+[editable path="VBoxContainer/HBoxContainer/Name Desc/Description"]

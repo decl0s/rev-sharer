@@ -21,7 +21,6 @@ func dev_populate_mock_revenue_sources(amount : int) -> void: ## Creates mock da
 		mock_revenue.id = get_next_id(revenue_sources)
 		mock_revenue.name = mock_revenue_names.pick_random() + str(i)
 		mock_revenue.payout_schedule = [0,1,2].pick_random()
-		mock_revenue.revenue = {100.0:{01:2025}}
 		mock_revenue.recoup = RecoupData.new()
 		revenue_sources[mock_revenue.id] = mock_revenue
 
@@ -170,8 +169,15 @@ func get_allocated_percentage(checked_revenue_source : RevenueSourceData) -> flo
 	return allocated_percentage
 
 func get_total_recoup_spend(rev_source : RevenueSourceData) -> float:
-	var total : float
+	var total : float = 0
 	for transaction : TransactionData in rev_source.recoup.transactions:
+		if transaction.archived != true:
+			total += transaction.amount
+	return total
+
+func get_total_revenue(rev_source : RevenueSourceData) -> float:
+	var total : float = 0
+	for transaction : TransactionData in rev_source.revenue:
 		if transaction.archived != true:
 			total += transaction.amount
 	return total

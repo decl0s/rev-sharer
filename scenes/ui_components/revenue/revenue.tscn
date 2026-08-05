@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmgg30xu5abmb"]
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_q3l1r"]
+[ext_resource type="Script" uid="uid://bmqy466r7oymj" path="res://scripts/revenue/revenue.gd" id="2_4vq15"]
 
 [node name="Revenue" type="Control" unique_id=1824323776]
 layout_mode = 3
@@ -10,14 +11,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_q3l1r")
+script = ExtResource("2_4vq15")
 
-[node name="Placeholder" type="Label" parent="." unique_id=906464461]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1233904074]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=835669986]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=1159232702]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=1097062119]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
 text = "TAB_REVENUE"
+
+[node name="EmptyLabel" type="Label" parent="VBoxContainer" unique_id=2082002183]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"HeaderSmall"
+text = "NO_REVENUE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=703998662]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DataContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1976160603]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
