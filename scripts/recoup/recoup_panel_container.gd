@@ -17,6 +17,6 @@ func init() -> void:
 				new_panel.transaction = transaction
 				%TransactionsContainer.add_child(new_panel)
 	
-	%Total.set_text(str(snappedf(Global.get_total_recoup_spend(revenue_source),0.01)) + "$")
+	%Total.set_text(Utils.get_money_string(Global.get_total_recoup_spend(revenue_source)))
 	
 	if revenue_source.description.is_empty() : %Description.hide()

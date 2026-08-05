@@ -1,5 +1,11 @@
 extends Node
 
+func get_rounded_amount(value : float) -> float: ## Returns a snapped float to 2 decimals.
+	return snappedf(value,0.01)
+
+func get_money_string(value : float) -> String: ## Returns a formatted money string. eg: 104.34$
+	return str(get_rounded_amount(value)) + Global.settings.currency_symbol
+
 func perc_str(value : float) -> String: ## Returns a string of the percentage from a float. Eg: 0.15 = 15%
 	return str(value * 100)+"%"
 

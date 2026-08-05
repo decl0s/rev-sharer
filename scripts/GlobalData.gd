@@ -9,6 +9,7 @@ class_name GlobalData
 @export var payments : Dictionary[int, PaymentData]
 @export var rev_shares : Dictionary[int,RecipientRevShare]
 
+@export var settings : SettingData
 
 func _ready() -> void:
 	dev_populate_mock_revenue_sources(10)
@@ -32,7 +33,6 @@ func dev_populate_mock_recipients(amount : int) -> void: ## Creates mock data fo
 		mock_recipient.name = mock_names.pick_random() + str(i)
 		mock_recipient.minimum_payout = randi_range(10,300)
 		#mock_recipient.revenue_sources.append(revenue_sources.pick_random())
-		mock_recipient.payments = {100.0:{01:2025}}
 		recipients[mock_recipient.id] = mock_recipient
 
 func get_next_id(dict_or_array : Variant) -> int :

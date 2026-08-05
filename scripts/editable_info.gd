@@ -102,6 +102,10 @@ func update_labels_and_inputs() -> void:
 		if suffix == "%":
 			input_field.value = get_value() * 100
 	
+	if input_field is SpinBox:
+		if input_field.suffix == "$":
+			input_field.suffix = Global.settings.currency_symbol
+	
 	if input_field is SpinBox and use_current_date == true:
 		if input_field.max_value == 31:
 			input_field.value = Time.get_date_dict_from_system().day
