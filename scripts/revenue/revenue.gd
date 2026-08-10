@@ -26,7 +26,7 @@ func repopulate_revenues() -> void:
 	for child : Node in container.get_children() :
 		if child is RevenuePanelContainer:
 			child.queue_free()
-	populate_recoups()
+	populate_revenues()
 	
 	if Global.get_available_revenue_sources().is_empty() == true:
 		empty_label.show()
@@ -37,7 +37,7 @@ func repopulate_revenues() -> void:
 
 const REVENUE_PANEL_CONTAINER : Resource = preload("uid://ipl7n0r4375t")
 
-func populate_recoups() -> void:
+func populate_revenues() -> void:
 	for revenue_source : RevenueSourceData in Global.revenue_sources.values():
 		if revenue_source.archived == true: # Don't instantiate if archived.
 			continue

@@ -9,7 +9,7 @@ class_name GlobalData
 @export var payments : Dictionary[int, PaymentData]
 @export var rev_shares : Dictionary[int,RecipientRevShare]
 
-@export var settings : SettingData
+@export var settings : SettingData = SettingData.new() #TODO: UPDATE ON LAUNCH
 
 func _ready() -> void:
 	dev_populate_mock_revenue_sources(10)
@@ -197,6 +197,45 @@ func get_available_shares(desired_recipient : RecipientData) -> Array[RevenueSou
 		sources.erase(linked_rev_share.revenue_source)
 	#print("Available Revenue Sources: ", sources)
 	return sources
+
+func get_awaiting_payment_rev_sources(recipient : RecipientData) -> Array[RevenueSourceData]:
+	var rev_sources_to_populate : Array[RevenueSourceData]
+	for rev_source : RevenueSourceData in recipient.shares.values() :
+		var unpaid_total : float = 0
+		for payment : PaymentData in recipient.payments :
+			if payment.rev_source == rev_source:
+				unpaid_total += payment.transaction.amount
+		if unpaid_total != 0:
+			rev_sources_to_populate.append(rev_source)
+	return rev_sources_to_populate
+
+func get_total_paid(recipient : RecipientData) -> float:
+	var total : float = 0
+	for payment : PaymentData in recipient.payments:
+		if payment.is_paid == true and payment.archived == false:
+			total += payment.transaction.amount
+	return total
+
+func get_total_unpaid(recipient : RecipientData) -> float:
+	var total : float = 0
+	for payment : PaymentData in recipient.payments:
+		if payment.is_paid == false and payment.archived == false:
+			total += payment.transaction.amount
+	return total
+
+func get_unpaid_payments(rev_source : RevenueSourceData,recipient : RecipientData) -> Array[PaymentData]:
+	var unpaid_payments : Array[PaymentData]
+	for payment : PaymentData in recipient.payments:
+		if payment.rev_source == rev_source:
+			if payment.is_paid == false and payment.archived == false:
+				unpaid_payments.append(payment)
+	return unpaid_payments
+
+func get_total_amount_from_payments(payment_array : Array[PaymentData]) -> float:
+	var total : float = 0
+	for payment: PaymentData in payment_array:
+		total += payment.transaction.amount
+	return total
 
 func get_available_revenue_sources() -> Array[RevenueSourceData]:
 	var sources : Array[RevenueSourceData] = []

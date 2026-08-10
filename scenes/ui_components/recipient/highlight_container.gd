@@ -31,6 +31,10 @@ func _ready() -> void:
 	update_colors()
 	set_text()
 
+func update() -> void:
+	update_colors()
+	set_text()
+
 func update_colors() -> void:
 	match color:
 		ColorStyle.White:

@@ -36,6 +36,17 @@ TOTAL,Total,Total
 -- REVENUE --,,
 REVENUES,Revenues,Revenus
 NO_REVENUE,No revenue,Aucun revenu
+-- PAYMENTS --,,
+NO_PAYMENTS,No awaiting payments,Aucun paiement en attente
+MARK_PAID,Mark as paid,Marquer comme payé
+MARL_ALL_PAID,Mark total as paid,Marquer le total comme payé
+PAYMENT_TITLE,Payment for %s,Paiement pour %s
+PAYMENT_TITLE_ALL,Total payment,Paiment total
+TOTAL_PAID,Total Paid Out,Total payé
+TOTAL_DUE,Total Due,Total dû
+MEETS_MIN,Meets minimum payout threshold: ({pending}/{minimum}),Atteint le seuil minimum de paiement: ({pending}/{minimum})
+DOESNT_MEETS_MIN,Does not meet minimum payout threshold: ({pending}/{minimum}),"N'atteints pas le seuil minimum de paiement: ({pending}/{minimum})
+"
  -- BUTTONS --,,
 ARE_YOU_SURE,Are you sure?,Êtes-vous sûr?
 BTN_CANCEL,Cancel,Annuler

@@ -112,3 +112,7 @@ func delete_payment() -> void:
 signal payment_edited
 func edit_payment() -> void:
 	emit_signal("payment_edited")
+
+signal paid_payment
+func payment_paid() -> void:
+	emit_signal("paid_payment")
