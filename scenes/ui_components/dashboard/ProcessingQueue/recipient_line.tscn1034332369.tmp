@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://7qd8p64mqw0h"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_e7nsy"]
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="1_uhdet"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="2_e7nsy"]
+[ext_resource type="Script" uid="uid://b2bwknnx8qot" path="res://scripts/dashboard/processing_queue/recipient_line.gd" id="2_ke7b3"]
+
+[node name="RecipientLine" type="VBoxContainer" unique_id=993103886 node_paths=PackedStringArray("bottom_divider")]
+theme = ExtResource("1_e7nsy")
+script = ExtResource("2_ke7b3")
+bottom_divider = NodePath("BottomDivider")
+
+[node name="RecipientLineInfo" type="HBoxContainer" parent="." unique_id=1890644721]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RecipientTab" type="VBoxContainer" parent="RecipientLineInfo" unique_id=786372081]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TAB_RECIPIENTS" type="Label" parent="RecipientLineInfo/RecipientTab" unique_id=1895998276]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "TAB_RECIPIENTS"
+
+[node name="RecipientName" parent="RecipientLineInfo/RecipientTab" unique_id=1900893206 instance=ExtResource("1_uhdet")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+target_property = "name"
+
+[node name="PreRecoupTab" type="VBoxContainer" parent="RecipientLineInfo" unique_id=476417839]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RECOUP_SHARE" type="Label" parent="RecipientLineInfo/PreRecoupTab" unique_id=1085667290]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "RECOUP_SHARE"
+
+[node name="PreRecoupShare" parent="RecipientLineInfo/PreRecoupTab" unique_id=517991368 instance=ExtResource("2_e7nsy")]
+unique_name_in_owner = true
+self_modulate = Color(0, 0.7058824, 0.84705883, 1)
+layout_mode = 2
+color = 4
+
+[node name="PostRecoupTab" type="VBoxContainer" parent="RecipientLineInfo" unique_id=1275025483]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="POST_RECOUP_SHARE" type="Label" parent="RecipientLineInfo/PostRecoupTab" unique_id=1141063974]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "POST_RECOUP_SHARE"
+
+[node name="PostRecoupShare" parent="RecipientLineInfo/PostRecoupTab" unique_id=1905167429 instance=ExtResource("2_e7nsy")]
+unique_name_in_owner = true
+self_modulate = Color(0, 0.7058824, 0.84705883, 1)
+layout_mode = 2
+color = 4
+
+[node name="TotalUnpaid" type="VBoxContainer" parent="RecipientLineInfo" unique_id=1533434089]
+layout_mode = 2
+
+[node name="TOTAL_DUE" type="Label" parent="RecipientLineInfo/TotalUnpaid" unique_id=1802381637]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "TOTAL_DUE"
+horizontal_alignment = 2
+
+[node name="TotalDue" parent="RecipientLineInfo/TotalUnpaid" unique_id=1084571880 instance=ExtResource("2_e7nsy")]
+unique_name_in_owner = true
+self_modulate = Color(0.023529412, 0.8392157, 0.627451, 1)
+layout_mode = 2
+color = 3
+
+[node name="BottomDivider" type="HSeparator" parent="." unique_id=421162674]
+unique_name_in_owner = true
+layout_mode = 2

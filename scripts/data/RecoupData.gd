@@ -3,4 +3,5 @@ extends BaseData
 
 @export var revenue_source : RevenueSourceData ## Revenue source linked to this recoup.
 @export var recipients : Array[RecipientData] ## All recipients linked to this recoup.
-@export var transactions : Array[TransactionData] ## All transactions linked to this recoup.
+@export var transactions : Array[TransactionData] ## All spent transactions linked to this recoup.
+@export var reimbursements : Array[TransactionData] ## All reimbursments gotten from revenue.

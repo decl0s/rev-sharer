@@ -11,10 +11,10 @@ func init() -> void:
 	%AddRevenueButton.parent_resource = revenue_source
 	
 	if not revenue_source.revenue.is_empty():
-		for transaction : TransactionData in revenue_source.revenue:
-			if transaction.archived == false:
+		for revenue : RevenueData in revenue_source.revenue:
+			if revenue.archived == false:
 				var new_panel : TransactionPanelContainer = TRANSACTION_PANEL.instantiate()
-				new_panel.transaction = transaction
+				new_panel.transaction = revenue.transaction
 				%TransactionsContainer.add_child(new_panel)
 	
 	%Total.set_text(Utils.get_money_string(Global.get_total_revenue(revenue_source)))

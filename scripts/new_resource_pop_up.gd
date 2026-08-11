@@ -37,8 +37,13 @@ func create_new_resource() -> void:
 		parent_resource.transactions.append(Global.transactions[new_id])
 		Sig.create_transaction()
 	if parent_resource is RevenueSourceData and new_resource is TransactionData:
-		parent_resource.revenue.append(Global.transactions[new_id])
-		Sig.create_transaction()
+		var new_rev : RevenueData = RevenueData.new()
+		new_rev.transaction = Global.transactions[new_id]
+		new_rev.revenue_source = parent_resource
+		new_rev.name = Global.transactions[new_id].name
+		new_rev.description = Global.transactions[new_id].description
+		parent_resource.revenue.append(new_rev)
+		Sig.create_revenue()
 
 func all_inputs_filled() -> bool:
 	for input : EditableInfo in required_inputs:

@@ -908,6 +908,11 @@ grow_end = -6.0
 thickness = 3
 vertical = true
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wl1kw"]
+color = Color(1, 1, 1, 1)
+thickness = 3
+vertical = true
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jao22"]
 content_margin_left = 3.0
 content_margin_top = 0.0
@@ -2422,6 +2427,8 @@ VScrollBar/styles/scroll = SubResource("StyleBoxFlat_w2rrs")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_w2rrs")
 VSeparator/constants/separation = 12
 VSeparator/styles/separator = SubResource("StyleBoxLine_gcaj8")
+VSeparatorHighlight/base_type = &"VSeparator"
+VSeparatorHighlight/styles/separator = SubResource("StyleBoxLine_wl1kw")
 VSlider/styles/slider = SubResource("StyleBoxFlat_jao22")
 VSplitContainer/constants/autohide = 1
 VSplitContainer/constants/minimum_grab_thickness = 9

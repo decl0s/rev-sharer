@@ -6,6 +6,13 @@ TAB_RECIPIENTS,Recipients,Bénéficiaires
 TAB_RECOUP,Recoup,Recouvrement 
 TAB_REVENUE,Revenue,Revenu
 TAB_PAYMENTS,Payments,Paiements
+---- DASHBOARD ----,,
+PROCESSING_QUEUE,Processing Queue,File d'attente de traitement
+PROCESSING_QUEUE_EMPTY,No revenue to process,Aucun revenu à traiter
+RECOUP_SHARE,Pre Recoup Share,Part avant recouvrement
+POST_RECOUP_SHARE,Post Recoup Share,Part après recouvrement
+TOTAL_AFTER_PAY,Total after payouts,Total après paiements
+TOTAL_UNPROCESSED,Total Unprocessed,Total non traité
 ---- REVENUE SOURCES ---,,
 REC_SOURCE,Revenue Source,Source de revenu
 NO_REVENUE_SOURCES,No revenue sources,Aucune sources de revenus
@@ -38,8 +45,6 @@ REVENUES,Revenues,Revenus
 NO_REVENUE,No revenue,Aucun revenu
 -- PAYMENTS --,,
 NO_PAYMENTS,No awaiting payments,Aucun paiement en attente
-MARK_PAID,Mark as paid,Marquer comme payé
-MARL_ALL_PAID,Mark total as paid,Marquer le total comme payé
 PAYMENT_TITLE,Payment for %s,Paiement pour %s
 PAYMENT_TITLE_ALL,Total payment,Paiment total
 TOTAL_PAID,Total Paid Out,Total payé
@@ -62,6 +67,9 @@ ADD_TRANSACTION,Add Transaction,Ajouter une transaction
 NEW_RECOUP,Add Recoup,Ajouter un recouvrement
 BTN_EDIT,Edit,Modifier
 BTN_ADD,Add,Ajouter
+MARK_PAID,Mark as paid,Marquer comme payé
+MARL_ALL_PAID,Mark total as paid,Marquer le total comme payé
+MARK_AS_PROCESSED,Mark as processed,Marquer comme traité
 ---- REVENUE ----,,
 REV_YEARLY,Yearly,Annuel
 REV_QUARTERLY,Quarterly,Trimestriel

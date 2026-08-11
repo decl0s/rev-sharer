@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cyw43f6ukjkld"]
+
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_ixsx4"]
+[ext_resource type="Script" uid="uid://dmdk1r5d56a0a" path="res://scripts/dashboard/processing_queue/recipients_level_container.gd" id="2_uce1e"]
+
+[node name="RecipientsLevelContainer" type="HBoxContainer" unique_id=2066291316]
+theme = ExtResource("1_ixsx4")
+script = ExtResource("2_uce1e")
+
+[node name="RecoupLevelLine" type="HBoxContainer" parent="." unique_id=360017419]
+layout_mode = 2
+
+[node name="RecoupLevel" type="Label" parent="RecoupLevelLine" unique_id=577337218]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+
+[node name="VSeparator" type="VSeparator" parent="RecoupLevelLine" unique_id=1158327466]
+layout_mode = 2
+theme_type_variation = &"VSeparatorHighlight"
+
+[node name="RecipientLineContainer" type="VBoxContainer" parent="." unique_id=552821742]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

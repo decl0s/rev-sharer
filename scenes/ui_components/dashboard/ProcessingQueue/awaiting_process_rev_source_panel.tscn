@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://ddc2qks4x3ngl"]
+
+[ext_resource type="PackedScene" uid="uid://dv47c10o17man" path="res://scenes/ui_components/editable_label.tscn" id="1_24cdr"]
+[ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_byq0m"]
+[ext_resource type="Script" uid="uid://d2dnquvkev8y8" path="res://scripts/dashboard/processing_queue/awaiting_process_rev_source_panel.gd" id="1_turby"]
+[ext_resource type="Texture2D" uid="uid://b8rfpyqakqrue" path="res://assets/icons/check.svg" id="2_turby"]
+[ext_resource type="PackedScene" uid="uid://0p80jfe2rs36" path="res://scenes/ui_components/highlight_container.tscn" id="4_qeshh"]
+
+[node name="AwaitingProcessRevSourcePanel" type="PanelContainer" unique_id=824702420]
+size_flags_vertical = 0
+theme = ExtResource("1_byq0m")
+script = ExtResource("1_turby")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2037450240]
+layout_mode = 2
+
+[node name="TitleLine" type="HBoxContainer" parent="VBoxContainer" unique_id=1137815237]
+layout_mode = 2
+
+[node name="RevenueName" parent="VBoxContainer/TitleLine" unique_id=1900893206 instance=ExtResource("1_24cdr")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+target_property = "name"
+
+[node name="Label" parent="VBoxContainer/TitleLine/RevenueName" index="0" unique_id=1906058850]
+theme_type_variation = &"HeaderSmall"
+
+[node name="MarkProcessed" type="Button" parent="VBoxContainer/TitleLine" unique_id=1061959144]
+layout_mode = 2
+text = "MARK_AS_PROCESSED"
+icon = ExtResource("2_turby")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1593694181]
+layout_mode = 2
+
+[node name="LevelsContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=569023929]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Totals" type="PanelContainer" parent="VBoxContainer" unique_id=148185138]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Totals" unique_id=395020053]
+layout_mode = 2
+
+[node name="TotalPreSplits" type="HBoxContainer" parent="VBoxContainer/Totals/VBoxContainer" unique_id=133273823]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="TOTAL_DUE" type="Label" parent="VBoxContainer/Totals/VBoxContainer/TotalPreSplits" unique_id=1819873336]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "TOTAL_UNPROCESSED"
+
+[node name="TotalUnprocessed" parent="VBoxContainer/Totals/VBoxContainer/TotalPreSplits" unique_id=517991368 instance=ExtResource("4_qeshh")]
+unique_name_in_owner = true
+self_modulate = Color(0.9137255, 0.27058825, 0.3764706, 1)
+layout_mode = 2
+
+[node name="TotalDue" type="HBoxContainer" parent="VBoxContainer/Totals/VBoxContainer" unique_id=1664710464]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="TOTAL_DUE" type="Label" parent="VBoxContainer/Totals/VBoxContainer/TotalDue" unique_id=310816830]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "TOTAL_DUE"
+
+[node name="TotalDue" parent="VBoxContainer/Totals/VBoxContainer/TotalDue" unique_id=852611178 instance=ExtResource("4_qeshh")]
+unique_name_in_owner = true
+self_modulate = Color(0.9137255, 0.27058825, 0.3764706, 1)
+layout_mode = 2
+color = 1
+
+[node name="LeftOver" type="HBoxContainer" parent="VBoxContainer/Totals/VBoxContainer" unique_id=168993694]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="TOTAL_AFTER_PAY" type="Label" parent="VBoxContainer/Totals/VBoxContainer/LeftOver" unique_id=1552487411]
+layout_mode = 2
+theme_type_variation = &"LabelSubInfo"
+text = "TOTAL_AFTER_PAY"
+
+[node name="Leftover" parent="VBoxContainer/Totals/VBoxContainer/LeftOver" unique_id=2022535506 instance=ExtResource("4_qeshh")]
+unique_name_in_owner = true
+self_modulate = Color(0.023529412, 0.8392157, 0.627451, 1)
+layout_mode = 2
+color = 3
+
+[connection signal="pressed" from="VBoxContainer/TitleLine/MarkProcessed" to="." method="_on_mark_processed_pressed"]
+
+[editable path="VBoxContainer/TitleLine/RevenueName"]

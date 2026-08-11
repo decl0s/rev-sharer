@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhlpisx5o1m20"]
 
 [ext_resource type="Theme" uid="uid://ypguy8l7d0r0" path="res://assets/theme.tres" id="1_v5t7j"]
+[ext_resource type="Script" uid="uid://dnj08xv1qfqtq" path="res://scripts/dashboard/processing_queue/process_dues.gd" id="2_dc0oe"]
 
 [node name="Dashboard" type="Control" unique_id=1225378070]
 layout_mode = 3
@@ -11,13 +12,39 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_v5t7j")
 
-[node name="TAB_DASHBOARD" type="Label" parent="." unique_id=1341191219]
+[node name="ProcessDues" type="PanelContainer" parent="." unique_id=372463815]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -981.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "TAB_DASHBOARD"
+script = ExtResource("2_dc0oe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProcessDues" unique_id=1506783699]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ProcessDues/VBoxContainer" unique_id=1930412868]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "PROCESSING_QUEUE"
+
+[node name="Empty" type="Label" parent="ProcessDues/VBoxContainer" unique_id=343146352]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"LabelSubInfo"
+text = "PROCESSING_QUEUE_EMPTY"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ProcessDues/VBoxContainer" unique_id=307898215]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QueueContainer" type="VBoxContainer" parent="ProcessDues/VBoxContainer/ScrollContainer" unique_id=1765065492]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
