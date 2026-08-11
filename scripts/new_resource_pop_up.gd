@@ -42,7 +42,7 @@ func create_new_resource() -> void:
 		new_rev.revenue_source = parent_resource
 		new_rev.name = Global.transactions[new_id].name
 		new_rev.description = Global.transactions[new_id].description
-		parent_resource.revenue.append(new_rev)
+		parent_resource.revenue[new_rev.id] = new_rev
 		Sig.create_revenue()
 
 func all_inputs_filled() -> bool:

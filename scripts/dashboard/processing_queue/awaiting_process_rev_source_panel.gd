@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func _on_mark_processed_pressed() -> void:
 	for recipient : RecipientData in Global.get_recipients_linked_to_rev(rev_source):
-		for revenue : RevenueData in rev_source.revenue :
+		for revenue : RevenueData in rev_source.revenue.values() :
 			if revenue.is_processed == false and revenue.archived == false:
 				var new_payment : PaymentData = PaymentData.new()
 				new_payment.recipient = recipient

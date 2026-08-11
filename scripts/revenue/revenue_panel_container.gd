@@ -11,7 +11,7 @@ func init() -> void:
 	%AddRevenueButton.parent_resource = revenue_source
 	
 	if not revenue_source.revenue.is_empty():
-		for revenue : RevenueData in revenue_source.revenue:
+		for revenue : RevenueData in revenue_source.revenue.values():
 			if revenue.archived == false:
 				var new_panel : TransactionPanelContainer = TRANSACTION_PANEL.instantiate()
 				new_panel.transaction = revenue.transaction

@@ -193,7 +193,7 @@ func get_total_recovered_recoup(rev_source : RevenueSourceData) -> float :
 
 func get_total_revenue(rev_source : RevenueSourceData) -> float:
 	var total : float = 0
-	for revenue : RevenueData in rev_source.revenue :
+	for revenue : RevenueData in rev_source.revenue.values() :
 		if revenue.transaction.archived != true:
 			total += revenue.transaction.amount
 	return total
@@ -201,7 +201,7 @@ func get_total_revenue(rev_source : RevenueSourceData) -> float:
 func get_rev_sources_with_unprocessed_rev() -> Array[RevenueSourceData]:
 	var array : Array[RevenueSourceData] = []
 	for rev_source : RevenueSourceData in revenue_sources.values() :
-		for revenue : RevenueData in rev_source.revenue:
+		for revenue : RevenueData in rev_source.revenue.values():
 			if revenue.is_processed == false and revenue.archived == false:
 				array.append(rev_source)
 				continue
@@ -253,7 +253,7 @@ func get_total_unpaid(recipient : RecipientData) -> float:
 
 func get_unprocessed_total(rev_source : RevenueSourceData) -> float :
 	var unprocessed_total : float = 0
-	for revenue : RevenueData in rev_source.revenue :
+	for revenue : RevenueData in rev_source.revenue.values() :
 		if revenue.archived == false and revenue.is_processed == false:
 			unprocessed_total += revenue.transaction.amount
 	return unprocessed_total
@@ -279,7 +279,7 @@ func get_layer_unprocessed_totals(rev_source : RevenueSourceData, layer : int, t
 	
 	if unrecouped_amount > 0:
 		for recipient: RecipientData in get_recipients_linked_to_rev(rev_source):
-			if recipient.shares[rev_source.id].layer == layer:
+			if recipient.shares[rev_source.id].layer == layer and pre_recoup_total > 0:
 				var pre_recoup_share : float = total_before_layer * recipient.shares[rev_source.id].recoup_percentage
 				dict[recipient.id][&"pre_recoup"] = pre_recoup_share
 				pre_recoup_total -= pre_recoup_share
