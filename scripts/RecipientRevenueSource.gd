@@ -1,7 +1,6 @@
-extends Resource
+extends BaseData
 class_name RecipientRevShare
 
-@export var id : int ## Unique identifier for a rev share.
 @export var revenue_source : RevenueSourceData ## Revenue source linked to this share.
 @export var linked_recipient : RecipientData ## Recipient source linked to this share.
 @export var percentage : float ## Share of revenue post recoup.
@@ -12,5 +11,3 @@ class_name RecipientRevShare
 @export var start_year : int ## Start year where recipient starts calculating rev share.
 @export_range(1,12,1) var end_month : int  = 1 ## End month where recipient stops calculating rev share. It's inclusive. Someone stopping rev share in January will add January's total to be paid.
 @export var end_year : int = 9999 ## End date where recipient stops calculating rev share.
-
-@export var archived : bool = false
