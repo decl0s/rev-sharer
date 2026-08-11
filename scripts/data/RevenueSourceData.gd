@@ -12,3 +12,4 @@ enum Schedule {
 @export var payout_schedule : Schedule ## Revenue payout schedule. Either Monthly, Quarterly, Yearly.
 @export var revenue : Dictionary[int,RevenueData] ## Monthly revenue for source.
 @export var recoup : RecoupData = RecoupData.new()
+@export var shares : Array[int] ## Array of rev share ids 

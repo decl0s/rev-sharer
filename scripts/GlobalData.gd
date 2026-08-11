@@ -86,6 +86,12 @@ func create_data(new_resource : Resource) -> int:
 		payments[new_resource.id] = new_resource
 		Sig.create_payment()
 		return new_resource.id
+	
+	elif new_resource is RecipientRevShare :
+		new_resource.id = get_next_id(payments)
+		rev_shares[new_resource.id] = new_resource
+		Sig.add_rev_share_to_recipient()
+		return new_resource.id
 	return -999
 
 # -----------------------------
@@ -95,6 +101,7 @@ func create_data(new_resource : Resource) -> int:
 func add_rev_share_to_recipient(desired_recipient : RecipientData, desired_rev_share : RecipientRevShare) -> void:
 	recipients[desired_recipient.id].shares[desired_rev_share.id] = desired_rev_share
 	rev_shares[desired_rev_share.id] = desired_rev_share
+	revenue_sources[desired_rev_share.revenue_source.id].shares.append(desired_rev_share.id)
 	#print("Added revenue source to ", desired_recipient.name)
 	print(recipients[desired_recipient.id].shares)
 	Sig.add_rev_share_to_recipient()
