@@ -4,6 +4,7 @@ class_name ProcessLayerContainer
 @export var layer_recipients : Array[RecipientData] = []
 @export var rev_source : RevenueSourceData
 @export var layer : int 
+@export var totals_dict : Dictionary
 
 const RECIPIENT_LINE : Resource = preload("uid://7qd8p64mqw0h")
 
@@ -24,6 +25,7 @@ func _ready() -> void:
 		
 		new_line.recipient = recipient
 		new_line.rev_source = rev_source
+		new_line.totals_dict = totals_dict
 		
 		%RecipientLineContainer.add_child(new_line)
 		

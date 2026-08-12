@@ -198,6 +198,9 @@ func get_total_recovered_recoup(rev_source : RevenueSourceData) -> float :
 			total += transaction.amount
 	return total
 
+func get_total_unrecovered_recoup(rev_source : RevenueSourceData) -> float :
+	return (get_total_recoup_spend(rev_source) - get_total_recovered_recoup(rev_source))
+
 func get_total_revenue(rev_source : RevenueSourceData) -> float:
 	var total : float = 0
 	for revenue : RevenueData in rev_source.revenue.values() :
@@ -265,82 +268,55 @@ func get_unprocessed_total(rev_source : RevenueSourceData) -> float :
 			unprocessed_total += revenue.transaction.amount
 	return unprocessed_total
 
-func get_layer_unprocessed_totals(rev_source : RevenueSourceData, layer : int, total_before_layer : float, unrecouped_amount : float) -> Dictionary:
-	var dict : Dictionary[int,Dictionary] = {
-		-1 : { ## -1 IS TOTAL
-			&"pre_recoup" : 0, # before recoup has been met
-			&"post_recoup" : 0, # after
-			&"total_after_layer" : 0, # total
-			}
-			## REST IS RECIPIENT IDS
-	}
-	
-	var pre_recoup_total : float = total_before_layer
-	
-	for recipient: RecipientData in get_recipients_linked_to_rev(rev_source):
-		dict[recipient.id] = {
-					&"pre_recoup" : 0,
-					&"post_recoup" : 0,
-					&"total" : 0,
-				}
-	
-	if unrecouped_amount > 0:
-		for recipient: RecipientData in get_recipients_linked_to_rev(rev_source):
-			if get_share(rev_source, recipient).layer == layer and pre_recoup_total > 0:
-				var pre_recoup_share : float = total_before_layer * get_share(rev_source, recipient).recoup_percentage
-				dict[recipient.id][&"pre_recoup"] = pre_recoup_share
-				pre_recoup_total -= pre_recoup_share
-	
-	dict[-1][&"pre_recoup"] = pre_recoup_total
-	
-	var post_recoup_leftover : float = total_before_layer - dict[-1][&"pre_recoup"]
-	
-	if post_recoup_leftover > 0:
-		for recipient: RecipientData in get_recipients_linked_to_rev(rev_source):
-			if get_share(rev_source, recipient).layer == layer:
-				var post_recoup_share : float = total_before_layer * get_share(rev_source, recipient).percentage
-				dict[recipient.id][&"post_recoup"] = post_recoup_share
-				
-				post_recoup_leftover -= post_recoup_share
-				
-				dict[recipient.id][&"total"] = dict[recipient.id][&"pre_recoup"] + dict[recipient.id][&"post_recoup"]
-	
-	dict[-1][&"post_recoup"] = post_recoup_leftover
-	
-	dict[-1][&"total_after_layer"] = total_before_layer - dict[-1][&"pre_recoup"] - dict[-1][&"post_recoup"]
-	
-	print(dict)
-	return dict
-
 func get_unprocessed_revenue_dict(rev_source : RevenueSourceData) -> Dictionary:
-	var dict : Dictionary[int,Dictionary] = { # layer, totals
+	var dict : Dictionary[int,Dictionary] = { # recipient id, totals
 		-1 : { # -1 is total for all layers
-				&"pre_recoup_total" : 0,
+				&"unprocessed_total" : 0,
+				&"recoup_share_total" : 0,
 				&"post_recoup_total" : 0,
+				&"total_due" : 0,
 				&"leftover" : 0,
-		} # rest is layers
+		} # rest is recipient IDs
 	}
 	
-	var layer_dict : Dictionary[int,bool] = {}
-	var linked_recipients : Array[RecipientData] = get_recipients_linked_to_rev(rev_source)
-	for recipient : RecipientData in linked_recipients :
-		layer_dict[get_share(rev_source, recipient).layer] = true
+	var unprocessed_total : float = get_unprocessed_total(rev_source)
+	dict[-1][&"unprocessed_total"] = unprocessed_total
 	
-	var total_before_layer : float = get_unprocessed_total(rev_source)
-	var total_unrecouped : float = get_total_recoup_spend(rev_source) - get_total_recovered_recoup(rev_source)
+	var recoup_share_total : float = 0 # amount recipients get from their recoup % shares
 	
-	for layer : int in layer_dict.keys():
-		var layer_totals : Dictionary = get_layer_unprocessed_totals(rev_source,layer,total_before_layer,total_unrecouped)
-		total_before_layer -= layer_totals[-1][&"total_after_layer"]
-		
-		dict[-1][&"pre_recoup_total"] += layer_totals[-1][&"pre_recoup"]
-		dict[-1][&"post_recoup_total"] += layer_totals[-1][&"post_recoup"]
-		
-		dict[layer] = layer_totals
+	for recipient : RecipientData in get_recipients_linked_to_rev(rev_source):
+		if recipient.archived == false:
+			var recoup_share : float = unprocessed_total * get_share(rev_source,recipient).recoup_percentage
+			dict[recipient.id] = {
+				&"recoup_share" : 0,
+				&"post_recoup_share" : 0,
+				&"total" : 0,
+			}
+			dict[recipient.id][&"recoup_share"] = recoup_share
+			dict[recipient.id][&"total"] += recoup_share
+			recoup_share_total += recoup_share
 	
-	dict[-1][&"leftover"] = get_unprocessed_total(rev_source) - dict[-1][&"pre_recoup_total"] + dict[-1][&"post_recoup_total"]
+	dict[-1][&"recoup_share_total"] = recoup_share_total
 	
-	print(dict)
+	var unrecouped_total : float = get_total_unrecovered_recoup(rev_source) # recoup left to pay off
+	var recoup_leftover : float = unprocessed_total - unrecouped_total - recoup_share_total # how much is left to pay from recoup.
+	
+	var post_recoup_total : float = 0
+	
+	if recoup_leftover > 0: # if recoup has been all paid off
+		for recipient : RecipientData in get_recipients_linked_to_rev(rev_source):
+			if recipient.archived == false:
+				var post_recoup_share : float = recoup_leftover * get_share(rev_source,recipient).percentage
+				dict[recipient.id][&"post_recoup_share"] = post_recoup_share
+				dict[recipient.id][&"total"] += dict[recipient.id][&"post_recoup_share"]
+				post_recoup_total += post_recoup_share
+	
+	dict[-1][&"post_recoup_total"] = post_recoup_total
+	
+	dict[-1][&"total_due"] = dict[-1][&"recoup_share_total"] + dict[-1][&"post_recoup_total"]
+	
+	dict[-1][&"leftover"] = dict[-1][&"unprocessed_total"] - dict[-1][&"total_due"]
+	
 	return dict
 
 func get_share(rev_source : RevenueSourceData, recipient : RecipientData) -> RecipientRevShare:

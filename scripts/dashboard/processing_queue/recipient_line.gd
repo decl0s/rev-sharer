@@ -7,6 +7,7 @@ class_name ProcessRecipientLine
 @export var bottom_divider : HSeparator
 @export var recipient : RecipientData
 @export var rev_source : RevenueSourceData
+@export var totals_dict : Dictionary
 
 func _ready() -> void:
 	
@@ -21,9 +22,8 @@ func _ready() -> void:
 	
 	%RecipientName.target_resource = recipient
 	
-	var recipient_dict : Dictionary = Global.get_unprocessed_revenue_dict(rev_source)
-	var layer : int = Global.get_share(rev_source, recipient).layer
-
-	%PreRecoupShare.set_text(Utils.get_money_string(recipient_dict[layer][recipient.id][&"pre_recoup"]))
-	%PostRecoupShare.set_text(Utils.get_money_string(recipient_dict[layer][recipient.id][&"post_recoup"]))
-	%TotalDue.set_text(Utils.get_money_string(recipient_dict[layer][recipient.id][&"total"]))
+	var recipient_share : RecipientRevShare = Global.get_share(rev_source,recipient)
+	
+	%PreRecoupShare.set_text(Utils.get_money_string(totals_dict[recipient.id][&"recoup_share"]) + " ("+Utils.perc_str(recipient_share.recoup_percentage)+")")
+	%PostRecoupShare.set_text(Utils.get_money_string(totals_dict[recipient.id][&"post_recoup_share"]) + " ("+Utils.perc_str(recipient_share.percentage)+")")
+	%TotalDue.set_text(Utils.get_money_string(totals_dict[recipient.id][&"total"]))

@@ -12,6 +12,11 @@ func _ready() -> void:
 	Sig.rev_share_added_to_recipient.connect(populate_dues)
 	Sig.rev_share_deleted_from_recipient.connect(populate_dues)
 	Sig.rev_share_modified.connect(populate_dues)
+	Sig.recipient_edited.connect(populate_dues)
+	Sig.recipient_edited.connect(populate_dues)
+	Sig.recoup_created.connect(populate_dues)
+	Sig.recoup_edited.connect(populate_dues)
+	Sig.recoup_deleted.connect(populate_dues)
 	
 	populate_dues()
 
