@@ -8,6 +8,7 @@ theme = ExtResource("1_ixsx4")
 script = ExtResource("2_uce1e")
 
 [node name="RecoupLevelLine" type="HBoxContainer" parent="." unique_id=360017419]
+visible = false
 layout_mode = 2
 
 [node name="RecoupLevel" type="Label" parent="RecoupLevelLine" unique_id=577337218]
