@@ -56,7 +56,6 @@ text = "TOTAL_UNPROCESSED"
 
 [node name="TotalUnprocessed" parent="VBoxContainer/Totals/VBoxContainer/TotalPreSplits" unique_id=517991368 instance=ExtResource("4_qeshh")]
 unique_name_in_owner = true
-self_modulate = Color(0.9137255, 0.27058825, 0.3764706, 1)
 layout_mode = 2
 
 [node name="TotalDue" type="HBoxContainer" parent="VBoxContainer/Totals/VBoxContainer" unique_id=1664710464]

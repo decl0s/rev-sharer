@@ -12,9 +12,9 @@ func _ready() -> void:
 	%RevenueName.target_resource = rev_source
 	
 	var layer_to_recipients: Dictionary[int, Array] = {}
-
+	
 	for recipient: RecipientData in Global.get_recipients_linked_to_rev(rev_source):
-		var layer: int = recipient.shares[rev_source.id].layer
+		var layer: int = Global.get_share(rev_source, recipient).layer
 		var arr: Array = layer_to_recipients.get_or_add(layer, [])
 		arr.append(recipient)
 	
