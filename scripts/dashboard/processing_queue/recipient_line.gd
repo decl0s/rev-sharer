@@ -13,7 +13,7 @@ func _ready() -> void:
 	while recipient == null and rev_source == null:
 		await get_tree().process_frame
 	
-	if id == 1:
+	if id == 0:
 		for title : Label in titles:
 			title.show()
 	
