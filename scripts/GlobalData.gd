@@ -149,10 +149,10 @@ func get_recipients_linked_to_rev(revenue_source : RevenueSourceData) -> Array[R
 	var linked_recipients : Array[RecipientData]
 	for recipient : RecipientData in recipients.values():
 		if recipient.archived == false:
-			for share_id : int in recipient.shares.keys():
-				if share_id == revenue_source.id:
+			for share : RecipientRevShare in recipient.shares.values():
+				if share.revenue_source.id == revenue_source.id:
 					linked_recipients.append(recipient)
-					continue
+					break
 	return linked_recipients
 
 func get_available_recipients() -> Array[RecipientData]:
@@ -286,8 +286,8 @@ func get_layer_unprocessed_totals(rev_source : RevenueSourceData, layer : int, t
 	
 	if unrecouped_amount > 0:
 		for recipient: RecipientData in get_recipients_linked_to_rev(rev_source):
-			if recipient.shares[rev_source.id].layer == layer and pre_recoup_total > 0:
-				var pre_recoup_share : float = total_before_layer * recipient.shares[rev_source.id].recoup_percentage
+			if get_share(rev_source, recipient).layer == layer and pre_recoup_total > 0:
+				var pre_recoup_share : float = total_before_layer * get_share(rev_source, recipient).recoup_percentage
 				dict[recipient.id][&"pre_recoup"] = pre_recoup_share
 				pre_recoup_total -= pre_recoup_share
 	
@@ -297,8 +297,8 @@ func get_layer_unprocessed_totals(rev_source : RevenueSourceData, layer : int, t
 	
 	if post_recoup_leftover > 0:
 		for recipient: RecipientData in get_recipients_linked_to_rev(rev_source):
-			if recipient.shares[rev_source.id].layer == layer:
-				var post_recoup_share : float = total_before_layer * recipient.shares[rev_source.id].percentage
+			if get_share(rev_source, recipient).layer == layer:
+				var post_recoup_share : float = total_before_layer * get_share(rev_source, recipient).percentage
 				dict[recipient.id][&"post_recoup"] = post_recoup_share
 				
 				post_recoup_leftover -= post_recoup_share
@@ -324,7 +324,7 @@ func get_unprocessed_revenue_dict(rev_source : RevenueSourceData) -> Dictionary:
 	var layer_dict : Dictionary[int,bool] = {}
 	var linked_recipients : Array[RecipientData] = get_recipients_linked_to_rev(rev_source)
 	for recipient : RecipientData in linked_recipients :
-		layer_dict[recipient.shares[rev_source.id].layer] = true
+		layer_dict[get_share(rev_source, recipient).layer] = true
 	
 	var total_before_layer : float = get_unprocessed_total(rev_source)
 	var total_unrecouped : float = get_total_recoup_spend(rev_source) - get_total_recovered_recoup(rev_source)
